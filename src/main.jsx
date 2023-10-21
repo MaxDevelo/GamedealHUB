@@ -10,7 +10,10 @@ import '@/index.scss'
 
 import Root from '@/root.jsx'
 import Home from '@/pages/homepage/Home'
+import Category from '@/pages/category/Category'
+import CategoryContainer from '@/components/category/CategoryContainer'
 import { homeGamesFilterActionLoader } from '@/services/actionloaders/home_gamesfilter'
+import { categoryGamesActionLoader } from '@/services/actionloaders/category_games' 
 
 const router = createBrowserRouter(
   [
@@ -22,6 +25,23 @@ const router = createBrowserRouter(
           index: true,
           element: <Home />,
           loader: homeGamesFilterActionLoader
+        },
+        {
+          path: "category",
+          element: <Category />,
+          loader: categoryGamesActionLoader,
+          children: [
+            {
+              path: "",
+              element: <CategoryContainer />,
+              loader: categoryGamesActionLoader
+            },
+            {
+              path: ":category",
+              element: <CategoryContainer />,
+              loader: categoryGamesActionLoader
+            }
+          ]
         }
       ]
     },

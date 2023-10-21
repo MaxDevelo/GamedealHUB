@@ -1,7 +1,7 @@
-const $url_host = "http://localhost:8080/";
+const $url_host = "http://gamedealhub.com:8080/";
 
-export const urlGetFreeGames = () => {
-    return $url_host + "api/games/freetoplay";
+export const urlGetFreeGames = (limit) => {
+    return $url_host + "api/games/freetoplay/" + limit;
 }
 
 export const urlGetMostRecentsGames = (limit) => {
@@ -12,6 +12,6 @@ export const urlGetUnderPriceGames = (price) => {
     return $url_host + "api/games/underprice/" + price;
 }
 
-export const urlGetTopDealsGames = () => {
-    return $url_host + "api/games/topdeals";
+export const urlGetTopDealsGames = (limit) => {
+    return $url_host + "api/games/topdeals/" + limit;
 }

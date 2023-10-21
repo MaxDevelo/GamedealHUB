@@ -1,7 +1,7 @@
 import { urlGetFreeGames, urlGetMostRecentsGames, urlGetUnderPriceGames, urlGetTopDealsGames } from "./config.js";
-export const get_free_games = () => {
+export const get_free_games = (limit) => {
   return Promise.all([ 
-    fetch(urlGetFreeGames()),
+    fetch(urlGetFreeGames(limit)),
     fetch(urlGetUnderPriceGames(5))
   ]).then(async([a, b]) => {
     const data = await a.json();
@@ -17,7 +17,6 @@ export const get_free_games = () => {
 };
 
 export const get_most_recents_games = (limit) => {
-  console.log(limit)
     return Promise.all([ 
         fetch(urlGetMostRecentsGames(limit ?? 20)),
         fetch(urlGetUnderPriceGames(5))
@@ -34,9 +33,9 @@ export const get_most_recents_games = (limit) => {
       });
   };
   
-export const get_top_deals = () => {
+export const get_top_deals = (limit) => {
   return Promise.all([ 
-      fetch(urlGetTopDealsGames()),
+      fetch(urlGetTopDealsGames(limit)),
       fetch(urlGetUnderPriceGames(5))
     ]).then(async([a, b]) => {
       const data = await a.json();

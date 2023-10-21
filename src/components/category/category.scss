@@ -1,0 +1,123 @@
+@import "../../assets/styles/_color";
+@import "../../assets/styles/_fonts";
+
+.categories-games-container {
+  display: flex;
+  flex-direction: row-reverse;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  h2 {
+    font-size: 30px;
+    font-weight: 800;
+  }
+  .catalog-games {
+    width: 50%;
+    margin-left: 50px;
+    h2 {
+      font-size: 40px;
+      font-weight: 800;
+    }
+    .catalog-info {
+      .game-item {
+        background: $color-game-card;
+        border-radius: 5px;
+        color: inherit;
+        text-decoration: none;
+        display: flex;
+        margin: 0 auto;
+        width: 100%;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: center;
+        height: auto;
+        margin-top: 15px;
+        border-right: 4px $color-button solid;
+        .game-info {
+          display: flex;
+          flex-direction: column;
+          margin-left: 10px;
+        }
+        .logoPlateform {
+          margin-top: 20px;
+          display: flex;
+          img {
+            width: 35px;
+            margin-right: 10px;
+          }
+        }
+        h3 {
+          font-size: 20px;
+        }
+        .image_cover {
+          width: 250px;
+          max-height: 20vh;
+          border-top-left-radius: 5px;
+          border-bottom-left-radius: 5px;
+        }
+        .price {
+          margin-right: 20px;
+          font-size: $font-size-large;
+          font-weight: 800;
+        }
+        &:hover {
+          background: $color-game-card-hover;
+          transition: all 0.3s ease-in-out;
+          border-right: 30px $color-button solid;
+          img {
+            filter: blur(2px);
+          }
+        }
+      }
+    }
+  }
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  button {
+    background: #fafafa;
+    border: 1px solid #eaeaea;
+    padding: 0.7rem 1.2rem;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  button:hover {
+    background: #eaeaea;
+  }
+  p {
+    font-size: 1rem;
+    margin: 0 1rem;
+  }
+}
+.pagination > li {
+  list-style: none;
+  border: 0.3px solid;
+}
+.pagination > li > a,
+.pagination > li > span {
+  float: left;
+  padding: 8px 20px;
+  line-height: 1.5;
+  border: 1px solid #ddd;
+  margin-left: -1px;
+}
+
+.pagination > li.active > a {
+  color: #fff;
+  background-color: $color-button;
+  border-color: $color-button;
+}
+.pagination > li > a:hover {
+  background-color: $color-button;
+  color: white;
+  cursor: pointer;
+}
+.pagination > li:first-child > a,
+.pagination > li:first-child > span {
+  margin-left: 0;
+}
