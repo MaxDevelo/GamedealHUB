@@ -2,12 +2,12 @@
 @import "../../assets/styles/_fonts";
 
 .game-card {
-  width: 400px;
+  width: 350px;
   position: relative;
   margin: 50px auto;
   background: $color-game-card;
   margin-left: 40px;
-  border-radius: 20px;
+  border-radius: 10px;
   .badge {
     position: absolute;
     left: 0;
@@ -17,35 +17,17 @@
     background: $color-badge;
     color: $color-text;
     padding: 10px 20px;
-    border-top-left-radius: 20px;
-  }
-  .badge-plateform {
-    position: absolute;
-    right: 0;
-    text-transform: uppercase;
-    font-weight: 700;
-    background: rgba(56, 56, 56, 0.699);
-    color: $color-text;
-    padding: 4px 4px;
-    border-top-right-radius: 20px;
-    img {
-      margin-left: 5px;
-    }
+    border-top-left-radius: 10px;
   }
   .game-tumb {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 300px;
+    height: 200px;
     padding: 50px;
-    background: #f0f0f0;
     overflow: hidden;
-    border-radius: 20px;
-    img {
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
   }
   .game-details {
     padding: 30px;
@@ -97,6 +79,7 @@
       margin-right: 5px;
     }
   }
+  
   .game-links {
     text-align: right;
     a {

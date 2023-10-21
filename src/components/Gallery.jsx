@@ -1,11 +1,17 @@
 import React from "react";
 import "./gallery.scss";
-import { Form, useLoaderData } from "react-router-dom";
+import { Form, useLoaderData, Link, useNavigation } from "react-router-dom";
+import getPlateformLogo from "../utils/getPlateformLogo";
 
-import test_product_image from "../assets/img/test_product_image.jpg";
+import Stack from "@mui/material/Stack";
+import CircularProgress from "@mui/material/CircularProgress";
+
 import PC from "../assets/img/plateforms-logo/PC.png";
+//  <CircularProgress color="secondary" />
 
 const Gallery = () => {
+  let navigate = useNavigation();
+
   const games = useLoaderData();
   return (
     <div className="catalog-games-container">
@@ -41,34 +47,99 @@ const Gallery = () => {
             </button>
           </Form>
         </div>
-        {(games) ? games[0].data.map((game) => (
-          <a className="game-item" href="#">
-            <img src={game.coverH} alt="gallery grid" />
-            <div className="game-info">
-              <h3>{game.name}</h3>
-              <img src={PC} className="logoPlateform" alt="plateform" />
-            </div>
-            <p className="price">€ {game.price}</p>
-          </a>
-        ))
-        : <h2>No games found</h2>
-        }
+        {navigate.state === "loading" ? (
+          <Stack
+            sx={{ display: "flex", justifyContent: "center", padding: "40px" }}
+            spacing={2}
+            direction="row"
+          >
+            <CircularProgress
+              color="secondary"
+              className="loading-catalogs"
+              size="6rem"
+            />
+          </Stack>
+        ) : games ? (
+          games[0].data.map((game) => (
+            <a className="game-item" href="#">
+              <img
+                src={game.coverH}
+                alt="gallery grid"
+                className="image_cover"
+              />
+              <div className="game-info">
+                <h3>
+                  {game.nameGame.length > 20
+                    ? game.nameGame.substring(0, 20).concat("...")
+                    : game.nameGame}
+                </h3>
+                <div className="logoPlateform">
+                  <img src={PC} alt="plateform" />
+                  <img
+                    src={getPlateformLogo(game.sellerName)}
+                    alt="plateform"
+                  />
+                </div>
+              </div>
+              <p className="price">
+                {game.price == 0 ? "Free" : "€ " + game.price}
+              </p>
+            </a>
+          ))
+        ) : (
+          <h2>No games found</h2>
+        )}
+        {navigate.state !== "loading" && games && games[0].data.length > 0 ? (
+          <Link to="/games" className="btn-see-all-games">
+            See all games
+          </Link>
+        ) : (
+          ""
+        )}
       </div>
-
       <div className="game-low-price">
         <h2>GAMES UNDER € 5</h2>
-        {(games && games[1]) ? games[1].data.data.map((game) => (
-          <a className="game-item" href="#">
-          <img src={game.coverH} alt="gallery grid" />
-          <h3>{game.name}</h3>
-          <p className="price">€ {game.price_game}</p>
-        </a>
-        ))
-        : <h2>No games found</h2>
-        }
+        {games && games[1] ? (
+          games[1].data.data.map((game) => (
+            <a className="game-item" href="#">
+              <img src={game.coverH} alt="gallery grid" />
+              <h3>
+                {game.nameGame.length > 40
+                  ? game.nameGame.substring(0, 40).concat("...")
+                  : game.nameGame}
+              </h3>
+              <p className="price">€ {game.price_game}</p>
+            </a>
+          ))
+        ) : (
+          <h2>No games found</h2>
+        )}
       </div>
     </div>
   );
 };
 
 export default Gallery;
+
+/*
+(games ? (
+          games[0].data.map((game) => (
+            <a className="game-item" href="#">
+              <img src={game.coverH} alt="gallery grid" className="image_cover" />
+              <div className="game-info">
+                <h3>{(game.nameGame.length > 20) ? game.nameGame.substring(0, 20).concat("...") : game.nameGame}</h3>
+                <div className="logoPlateform">
+                  <img src={PC} alt="plateform" />
+                  <img
+                    src={getPlateformLogo(game.sellerName)}
+                    alt="plateform"
+                  />
+                </div>
+              </div>
+              <p className="price">{game.price == 0 ? "Free" : "€ " + game.price}</p>
+            </a>
+          ))
+        ) : (
+          <h2>No games found</h2>
+        ))
+*/

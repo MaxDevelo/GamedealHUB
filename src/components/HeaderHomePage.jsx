@@ -1,12 +1,14 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Link, useLoaderData } from "react-router-dom";
 import logo from "../assets/img/logo.png";
 import GameCard from "./game-card/GameCard";
 import { Box } from "@mui/material";
 
 import "./headerhome.scss";
 
+
 const HeaderHomePage = () => {
+  const games = useLoaderData();
   return (
     <header className="header-homepage">
       <nav>
@@ -22,11 +24,14 @@ const HeaderHomePage = () => {
         </ul>
       </nav>
       <div className="last-games-container">
-        <Box sx={{ display: 'flex', flexWrap: "wrap" }}>
-          <GameCard />
-          <GameCard />
-          <GameCard />
-        </Box>
+        {games && (
+          <Box sx={{ display: "flex", flexWrap: "wrap" }}>
+            {games[0] &&
+              games[0].data.slice(0, 3).map((game) => (
+                <GameCard game={game} type={games[2].type} />
+              ))}
+          </Box>
+        )}
       </div>
     </header>
   );
