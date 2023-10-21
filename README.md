@@ -34,7 +34,7 @@ node server.js
 ## RESSOURCES
 
 ### API
-- API a été fait pas nous via une ab==base de données.
+- API a été fait pas nous via une base de données qu'on a sur un serveur à distance.
 
 ### FRAMEWORK
 - [Material UI](https://mui.com/)
