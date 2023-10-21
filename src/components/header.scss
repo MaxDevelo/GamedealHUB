@@ -1,0 +1,52 @@
+@import "../assets/styles/_color";
+@import "../assets/styles/_fonts";
+
+.header-page {
+  position: fixed;
+  display: flex;
+  top: 0;
+  left: 0;
+  height: 70px;
+  width: 100%;
+  z-index: 100;
+  border: 1px solid #393838;
+  padding: 10px;
+  background-color: $color-navbar;
+  border-bottom: 2px solid $color-button;
+  nav {
+    position: relative;
+    height: 100%;
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo {
+    width: 50px;
+    border-radius: 50%;
+    border: 4px solid $color-button;
+  }
+  ul {
+    display: flex;
+    align-items: center;
+
+    li {
+        text-decoration: none;
+        list-style: none;
+      a {
+        margin: 0 5px;
+        position: relative;
+        font-size: 20px;
+        font-weight: 600;
+        color: $color-text-navbar;
+        padding: 10px;
+        &:hover {
+            color: $color-button-hover
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,124 @@
+@import "../assets/styles/_color";
+@import "../assets/styles/_fonts";
+
+.catalog-games-container {
+  display:flex;
+  position: relative;
+  div.catalog-games {
+    width: 60%;
+    margin-top: 100px;
+    margin-left: 100px;
+    .catalog-info {
+      display: flex;
+      .btn-catalog-form {
+        margin-left: 4px;
+        margin-top:10px;
+        background: $color-background;
+        font-size: $font-size-h4;
+        color: rgb(59, 70, 94);
+        padding: 5px 10px;;
+        &:hover, &:focus, &:active {
+          border: none;
+          color: rgb(94, 99, 110);
+        }
+      }
+    }
+    h2 {
+      font-size: $font-size-h3;
+      font-weight: bolder;
+      margin-left: 20%;
+      border-left: 8px $color-button solid;
+      padding-left: 10px;
+      margin-bottom:30px;
+    }
+    .game-item {
+      background: $color-game-card;
+      border-radius: 5px;
+      color: inherit;
+      text-decoration: none;
+      display: flex;
+      margin: 0 auto;
+      width: 70%;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      align-items: center;
+      height: auto;
+      margin-top: 15px;
+      border-right: 4px $color-button solid;
+      .game-info {
+        display:flex;
+        flex-direction: column;
+      }
+      .logoPlateform {
+        width:40px;
+        height:40px;
+        margin-top:20px;
+      }
+      h3 {
+        font-size: 20px;
+      }
+      img {
+        width: 250px;
+        max-height: 10vh;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+      
+      }
+      .price {
+        margin-right: 20px;
+        font-size: $font-size-large;
+        font-weight: 800;
+      }
+      &:hover {
+        background: $color-game-card-hover;
+        transition: all 0.3s ease-in-out;
+        border-right: 30px $color-button solid;
+        img {
+          filter: blur(2px);
+        }
+      }
+    }
+  }
+
+  div.game-low-price {
+    border-left: 8px solid $color-button;
+    width: 30%;
+    margin-top: 120px;
+    margin-right:60px;
+    h2 {
+      font-size: $font-size-h4;
+      font-weight: bolder;
+       margin-left: 6px;
+    }
+    .game-item {
+      margin-left:10px;
+      background: $color-game-card;
+      color: $color-text;
+      text-decoration: none;
+      display: flex;
+      width: 60%;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      align-items: center;
+      margin-top:5px;
+      height: 5vh;
+      h3 {
+        font-size: 12px;
+      }
+      img {
+        width: auto;
+        height: 5vh;
+      }
+      .price {
+        margin-right: 20px;
+        font-size: 15px;
+      }
+      &:hover {
+        background: $color-game-card-hover;
+        img {
+          filter: blur(2px);
+        }
+      }
+    }
+  }
+}

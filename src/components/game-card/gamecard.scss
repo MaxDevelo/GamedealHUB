@@ -1,0 +1,116 @@
+@import "../../assets/styles/_color";
+@import "../../assets/styles/_fonts";
+
+.game-card {
+  width: 400px;
+  position: relative;
+  margin: 50px auto;
+  background: $color-game-card;
+  margin-left: 40px;
+  border-radius: 20px;
+  .badge {
+    position: absolute;
+    left: 0;
+    text-transform: uppercase;
+    font-size: $font-size-base;
+    font-weight: 700;
+    background: $color-badge;
+    color: $color-text;
+    padding: 10px 20px;
+    border-top-left-radius: 20px;
+  }
+  .badge-plateform {
+    position: absolute;
+    right: 0;
+    text-transform: uppercase;
+    font-weight: 700;
+    background: rgba(56, 56, 56, 0.699);
+    color: $color-text;
+    padding: 4px 4px;
+    border-top-right-radius: 20px;
+    img {
+      margin-left: 5px;
+    }
+  }
+  .game-tumb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+    padding: 50px;
+    background: #f0f0f0;
+    overflow: hidden;
+    border-radius: 20px;
+    img {
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  }
+  .game-details {
+    padding: 30px;
+    h4 a {
+      font-weight: 500;
+      display: block;
+      margin-bottom: 18px;
+      text-transform: uppercase;
+      color: $color-text;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    p {
+      font-size: 15px;
+      line-height: 22px;
+      margin-bottom: 18px;
+      color: $color-text;
+    }
+  }
+  .game-catagory {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #ccc;
+    margin-bottom: 18px;
+  }
+  .game-bottom-details {
+    overflow: hidden;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+    div {
+      float: left;
+      width: 100%;
+    }
+  }
+  .game-price {
+    font-size: 25px;
+    color: #7ed321;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    small {
+      font-size: 80%;
+      font-weight: 400;
+      text-decoration: line-through;
+      display: inline-block;
+      margin-right: 5px;
+    }
+  }
+  .game-links {
+    text-align: right;
+    a {
+      display: inline-block;
+      margin-left: 5px;
+      color: #e1e1e1;
+      transition: 0.3s;
+      font-size: 17px;
+    }
+  }
+  &:hover {
+    background: $color-game-card-hover;
+    cursor: pointer;
+    scale: calc(1.1);
+    transition: all 0.4s;
+  }
+}
