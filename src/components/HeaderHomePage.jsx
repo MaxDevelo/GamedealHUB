@@ -19,7 +19,7 @@ const HeaderHomePage = () => {
             </Link>
           </div>
           <li>
-            <Link to="/category">Catalogs</Link>
+            <Link to="/category/most-recent">Catalogs</Link>
           </li>
         </ul>
       </nav>
