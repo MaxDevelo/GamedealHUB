@@ -34,3 +34,6 @@ export const urlGetGameByName = (game_name) => {
 export const urlGetGameByNameBySort = (game_name, sort) => {
     return $url_host + "api/games/search/" + game_name + "/" + sort;
 }
+export const urlGetMostPopularGames = (limit) => {
+    return $url_host + "api/games/popular/" + limit;
+}

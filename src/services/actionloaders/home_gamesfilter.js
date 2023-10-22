@@ -2,6 +2,7 @@ import {
   get_free_games,
   get_most_recents_games,
   get_top_deals,
+  get_most_popular_games
 } from "../api/games";
 
 export const homeGamesFilterActionLoader = async ({ request }) => {
@@ -11,9 +12,11 @@ export const homeGamesFilterActionLoader = async ({ request }) => {
     return await get_free_games(20);
   } else if (filter == "most_recents") {
     return await get_most_recents_games(20);
+  } else if (filter === "most_popular") {
+    return await get_most_popular_games(20);
   } else if (filter == "top_deals") {
     return await get_top_deals(20);
   } else {
-    return await get_top_deals(20);
+    return await get_most_popular_games(20);
   }
 };

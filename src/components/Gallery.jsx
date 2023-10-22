@@ -22,6 +22,17 @@ const Gallery = () => {
               type="hidden"
               name="filter"
               id="filter"
+              value="most_popular"
+            />
+            <button className="btn-catalog-form" type="submit">
+              Most Popular
+            </button>
+          </Form>
+          <Form>
+            <input
+              type="hidden"
+              name="filter"
+              id="filter"
               value="most_recents"
             />
             <button className="btn-catalog-form" type="submit">
