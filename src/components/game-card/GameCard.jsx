@@ -1,12 +1,12 @@
 import React from "react";
 import "./gamecard.scss";
-
+import {  Link } from "react-router-dom";
 import PC from "../../assets/img/plateforms-logo/PC.png";
 import getPlateformLogo from "../../utils/getPlateformLogo";
 
 const GameCard = ({ game, type }) => {
   return (
-    <div class="game-card">
+    <Link class="game-card" to={`/games/${game.id}`}>
       <div class="badge">{type}</div>
       <div class="game-tumb">
         <img src={game.coverH} alt="" width="600" />
@@ -25,7 +25,7 @@ const GameCard = ({ game, type }) => {
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

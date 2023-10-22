@@ -12,10 +12,10 @@ import Root from "@/root.jsx";
 import Home from "@/pages/homepage/Home";
 import Category from "@/pages/category/Category";
 import CategoryContainer from "@/components/category/CategoryContainer";
-import GameInfo from "@/components/game-info/GameInfo";
+import GameInfo from "@/pages/infogame/InfoGame";
 import { homeGamesFilterActionLoader } from "@/services/actionloaders/home_gamesfilter";
 import { categoryGamesActionLoader } from "@/services/actionloaders/category_games";
-
+import { gameInfoActionLoader } from "@/services/actionloaders/game_info";
 const router = createBrowserRouter(
   [
     {
@@ -49,7 +49,7 @@ const router = createBrowserRouter(
           ],
         },
         {
-          path: "game",
+          path: "games",
           children: [
             {
               index: true,
@@ -59,7 +59,7 @@ const router = createBrowserRouter(
             {
               path: ":game",
               element: <GameInfo />,
-              //loader: homeGamesFilterActionLoader,
+              loader: gameInfoActionLoader,
             },
           ]
         }

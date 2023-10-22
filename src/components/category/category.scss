@@ -139,3 +139,23 @@
     }
   }
 }
+
+.nogamefound{
+  text-align: center;
+  color:$color-button
+}
+.form-searchgame {
+  display:flex;
+  width:100%;
+  margin:0 auto;
+  .search-game {
+    text-align:center;
+    height:50px;
+    width:60%;
+    margin:0 auto;
+    font-size:20px;
+    background-color: rgb(61, 61, 82);
+    border:none;
+    border-radius: 20px;
+  }
+}

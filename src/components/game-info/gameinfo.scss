@@ -1,0 +1,121 @@
+@import "../../assets/styles/_color";
+@import "../../assets/styles/_fonts";
+
+.game-container {
+    display:flex;
+    flex-wrap: wrap;
+    .game-info {
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        height:60vh;
+        margin:0 auto;
+        background: $color-background;
+        box-shadow: black 0px 0px 20px 0px;
+        .game-img {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 200px;
+            overflow: hidden;
+        }
+        .plateforms{
+            padding:10px;
+        }
+        .metacritic-note {
+            display:flex;
+            flex-direction: row-reverse;
+            padding:10px;
+            .metacritic-img {
+                width:200px;
+            }
+            p {
+                font-size:25px;
+                font-weight: 800;
+            }
+        }
+    }
+    .game-details {
+        display:flex;
+        padding:10px;
+        flex-direction: column;
+        width:60%;
+        margin:0 auto;
+        h2 {
+            font-size: 40px;
+        }
+        .others {
+            .date {
+                font-size:20px;
+                font-weight: 800;
+                padding:10px;
+                text-align: center;
+            }
+        }
+        p {
+            font-size:18px;
+            flex-wrap: wrap;
+        }
+    }
+    .container-buy {
+        .game-buy-link {
+            width:80%;
+            display:flex;
+            flex-direction: column;
+            .game-link {
+                background: $color-game-card;
+                border-radius: 5px;;
+                margin-top: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding:10px;
+                &:hover {
+                    transition: all 0.2s ease-in-out;
+                    background-color: $color-game-card-hover;
+                    a {
+                        border: 2px solid $color-button;
+                        background-color: $color-button;
+                    }
+                }
+                &:first-child{
+                    color:grey;
+                    background-color: transparent;
+                    .column {
+                        font-size:20px;
+                        font-weight: 800;
+                    }
+                }
+                .price {
+                    font-size:25px;
+                    font-weight: 800;
+                }
+                a {
+                    border: 2px solid $color-button;
+                    padding:5px 30px;
+                    color:white;
+                    font-weight: 800;
+                    border-radius: 5px;
+                    background-color: rgba(92, 24, 83, 0.479);
+                    margin-right:10px;
+                }
+            }
+        }
+    }
+}
+
+.good-note {
+    background: $metacritic-best;
+    padding:10px;
+    border-radius: 10px;
+}
+.middle-note {
+    background: $metacritic-middle;
+    padding:10px;
+    border-radius: 10px;
+}
+.low-note {
+    background: $metacritic-low;
+    padding:10px;
+    border-radius: 10px;
+}

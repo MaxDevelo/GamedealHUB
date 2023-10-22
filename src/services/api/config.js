@@ -25,3 +25,12 @@ export const urlGetFreeGamesBySort = (limit, sort) => {
 export const urlGetMostRecentsGamesBySort = (limit, sort) => {
     return $url_host + "api/games/mostrecents/" + limit + "/" + sort;
 }
+export const urlGetGameById = (game_id) => {
+    return $url_host + "api/games/" + game_id;
+}
+export const urlGetGameByName = (game_name) => {
+    return $url_host + "api/games/search/" + game_name;
+}
+export const urlGetGameByNameBySort = (game_name, sort) => {
+    return $url_host + "api/games/search/" + game_name + "/" + sort;
+}

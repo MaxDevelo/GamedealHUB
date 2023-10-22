@@ -5,9 +5,18 @@ import {
   get_top_deals_by_sort,
   get_free_games_by_sort,
   get_most_recent_by_sort,
+  get_game_by_name,
+  get_game_by_name_by_sort
 } from "../api/games";
 
-export const categoryGamesActionLoader = async ({ params }) => {
+export const categoryGamesActionLoader = async ({ request, params }) => {
+  const url = new URL(request.url);
+  const search = url.searchParams.get("search");
+  if(search && !params.sort) {
+      return await get_game_by_name(search);
+  } else if(search && params.sort) {
+    return await get_game_by_name_by_sort(search, params.sort);
+  }
   if (params.category === "free-to-play" && !params.sort) {
     return await get_free_games(4000);
   } else if (params.category === "most-recent" && !params.sort) {

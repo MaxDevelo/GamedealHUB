@@ -6,6 +6,8 @@ import {
   useNavigate,
   Form,
   useParams,
+  Link,
+  useLocation
 } from "react-router-dom";
 import PC from "../../assets/img/plateforms-logo/PC.png";
 
@@ -16,7 +18,6 @@ import ReactPaginate from "react-paginate";
 
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
-import FormControl from "@mui/material/FormControl";
 
 const Loading = () => {
   return (
@@ -52,9 +53,10 @@ const CategoryContainer = () => {
   const [gamesOffset, setgamesOffset] = useState(0);
   const [sort, setSort] = useState(0);
   const navigate = useNavigate();
+  let { search } = useLocation();
   const handleChangeSelect = (event) => {
     setSort(event.target.value);
-    navigate("/category/" + params.category + "/" + event.target.value);
+    navigate("/category/" + params.category + "/" + event.target.value + search);
   };
 
   const navigation = useNavigation();
@@ -70,6 +72,15 @@ const CategoryContainer = () => {
   };
   return (
     <div className="catalog-games">
+      <Form className="form-searchgame">
+        <input
+          className="search-game"
+          type="text"
+          name="search"
+          id="search"
+          placeholder="Search by the title ..."
+        />
+      </Form>
       {navigation.state === "loading" ? (
         Loading()
       ) : (
@@ -96,9 +107,9 @@ const CategoryContainer = () => {
             </Form>
           </div>
           <div className="catalog-info">
-            {currentGames ? (
+            {currentGames && currentGames.length > 0 ? (
               currentGames.map((game) => (
-                <a className="game-item" href="#">
+                <Link className="game-item" to={`/games/${game.id}`}>
                   <img
                     src={game.coverH}
                     alt="gallery grid"
@@ -121,10 +132,10 @@ const CategoryContainer = () => {
                   <p className="price">
                     {game.price == 0 ? "Free" : "€ " + game.price}
                   </p>
-                </a>
+                </Link>
               ))
             ) : (
-              <h2>No games found</h2>
+              <h2 className="nogamefound">No games found</h2>
             )}
           </div>
           <div className="pagination">

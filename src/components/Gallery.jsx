@@ -60,7 +60,7 @@ const Gallery = () => {
           </Stack>
         ) : games ? (
           games[0].data.map((game) => (
-            <Link className="game-item" to={`/game/${game.id}`}>
+            <Link className="game-item" to={`/games/${game.id}`}>
               <img
                 src={game.coverH}
                 alt="gallery grid"
@@ -100,7 +100,7 @@ const Gallery = () => {
         <h2>GAMES UNDER € 5</h2>
         {games && games[1] ? (
           games[1].data.data.map((game) => (
-            <a className="game-item" href="#">
+            <Link className="game-item" href="#" to={`/games/${game.id}`}>
               <img src={game.coverH} alt="gallery grid" />
               <h3>
                 {game.nameGame.length > 40
@@ -108,7 +108,7 @@ const Gallery = () => {
                   : game.nameGame}
               </h3>
               <p className="price">€ {game.price_game}</p>
-            </a>
+            </Link>
           ))
         ) : (
           <h2>No games found</h2>

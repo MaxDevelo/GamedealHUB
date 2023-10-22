@@ -5,7 +5,10 @@ import {
   urlGetTopDealsGames,
   urlGetTopDealsGamesBySort,
   urlGetFreeGamesBySort,
-  urlGetMostRecentsGamesBySort
+  urlGetMostRecentsGamesBySort,
+  urlGetGameById,
+  urlGetGameByName,
+  urlGetGameByNameBySort
 } from "./config.js";
 export const get_free_games = (limit) => {
   return Promise.all([
@@ -106,6 +109,52 @@ export const get_most_recent_by_sort = (limit, sort) => {
       const data =  await a.json();
       const under_price_games =  await b.json();
       return [data, { data: under_price_games }, { type: "News" }];
+    })
+    .then((data) => {
+      return data;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+export const get_game_by_id = (id) => {
+  return fetch(urlGetGameById(id))
+    .then((response =>  response.json()
+    ))
+    .then((data) => {
+      return data;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+export const get_game_by_name = (name) => {
+  return Promise.all([
+    fetch(urlGetGameByName(name)),
+    fetch(urlGetUnderPriceGames(5)),
+  ])
+    .then( async ([a, b]) => {
+      const data =  await a.json();
+      const under_price_games =  await b.json();
+      return [data, { data: under_price_games }, { type: "Top" }];
+    })
+    .then((data) => {
+      return data;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+export const get_game_by_name_by_sort = (name, sort) => {
+  return Promise.all([
+    fetch(urlGetGameByNameBySort(name, sort)),
+    fetch(urlGetUnderPriceGames(5)),
+  ])
+    .then( async ([a, b]) => {
+      const data =  await a.json();
+      const under_price_games =  await b.json();
+      return [data, { data: under_price_games }, { type: "Top" }];
     })
     .then((data) => {
       return data;

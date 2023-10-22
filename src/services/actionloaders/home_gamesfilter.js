@@ -14,6 +14,6 @@ export const homeGamesFilterActionLoader = async ({ request }) => {
   } else if (filter == "top_deals") {
     return await get_top_deals(20);
   } else {
-    return await get_most_recents_games(20);
+    return await get_top_deals(20);
   }
 };

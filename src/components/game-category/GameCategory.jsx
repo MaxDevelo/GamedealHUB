@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./gamecategory.scss";
 import { Outlet, useLoaderData, NavLink, useLocation } from "react-router-dom";
-import PC from "../../assets/img/plateforms-logo/PC.png";
 
 const getTitleCategory = (type) => {
   switch (type) {
