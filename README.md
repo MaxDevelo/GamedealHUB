@@ -22,13 +22,6 @@ git clone git@git.unistra.fr:mwawrzyniak/w51-projet.git
 cd w51-projet
 npm install
 npm run dev
-
-# Lancer API
-cd w51-projet/server
-npm install
-nodemon start
-# ou
-node server.js
 ```
 <hr>
 
