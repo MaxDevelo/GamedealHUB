@@ -1,12 +1,22 @@
 import React, { useState, useEffect } from "react";
 import "./category.scss";
-import { useLoaderData, useNavigation } from "react-router-dom";
+import {
+  useLoaderData,
+  useNavigation,
+  useNavigate,
+  Form,
+  useParams,
+} from "react-router-dom";
 import PC from "../../assets/img/plateforms-logo/PC.png";
 
 import Stack from "@mui/material/Stack";
 import CircularProgress from "@mui/material/CircularProgress";
 import getPlateformLogo from "../../utils/getPlateformLogo";
 import ReactPaginate from "react-paginate";
+
+import MenuItem from "@mui/material/MenuItem";
+import Select from "@mui/material/Select";
+import FormControl from "@mui/material/FormControl";
 
 const Loading = () => {
   return (
@@ -35,12 +45,20 @@ const getTitleCategory = (type) => {
 };
 
 const CategoryContainer = () => {
-  const navigation = useNavigation();
-  const games = useLoaderData();
+  let games = useLoaderData();
+  let params = useParams();
   const [currentGames, setCurrentGames] = useState(null);
   const [pageCount, setPageCount] = useState(0);
   const [gamesOffset, setgamesOffset] = useState(0);
-  console.log(games[0]);
+  const [sort, setSort] = useState(0);
+  const navigate = useNavigate();
+  const handleChangeSelect = (event) => {
+    setSort(event.target.value);
+    navigate("/category/" + params.category + "/" + event.target.value);
+  };
+
+  const navigation = useNavigation();
+
   useEffect(() => {
     const endOffset = gamesOffset + 8;
     setCurrentGames(games[0].data.slice(gamesOffset, endOffset));
@@ -56,7 +74,27 @@ const CategoryContainer = () => {
         Loading()
       ) : (
         <>
-          <h2>{games ? getTitleCategory(games[2].type) : "Most Recent"}</h2>
+          <div className="information-category">
+            <h2>{games ? getTitleCategory(games[2].type) : "Most Recent"}</h2>
+            <Form>
+              <Select
+                labelId="sort-select"
+                id="sort-select"
+                className="sort-select"
+                value={sort}
+                onChange={handleChangeSelect}
+              >
+                {games && games[2].type !== "Free" ? (
+                  <MenuItem value={0}>Price Low to high</MenuItem>
+                ) : null}
+                {games && games[2].type !== "Free" ? (
+                  <MenuItem value={1}>Price High to low</MenuItem>
+                ) : null}
+                <MenuItem value={2}>Oldest Release Date</MenuItem>
+                <MenuItem value={3}>Newest Release Date</MenuItem>
+              </Select>
+            </Form>
+          </div>
           <div className="catalog-info">
             {currentGames ? (
               currentGames.map((game) => (

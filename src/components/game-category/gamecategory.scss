@@ -10,20 +10,27 @@
   align-items: flex-start;
   .container-categories {
     .categories {
-        display:flex;
-        flex-direction: column;
+      display: flex;
+      flex-direction: column;
       background-color: $color-game-card;
-      padding: 3px 89px 25px 6px;
+      padding: 3px 100px 55px 20px;
       border-radius: 10px;
       a {
         background: transparent;
-        font-size: 20px;
+        font-size: 25px;
         font-weight: 800;
         color: grey;
+        margin-top: 10px;
         &:hover {
           border: none;
+          color: rgb(119, 108, 108);
         }
       }
     }
   }
+}
+
+.active {
+    color: $color-button !important;
+    border-bottom: $color-button 4px solid;
 }

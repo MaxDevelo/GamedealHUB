@@ -20,7 +20,7 @@
     "react-dom": "^18.2.0",
     "react-paginate": "^8.2.0",
     "react-router-dom": "^6.17.0",
-    "sass": "^1.69.3",
+    "sass": "^1.69.4",
     "sequelize": "^6.33.0"
   },
   "devDependencies": {

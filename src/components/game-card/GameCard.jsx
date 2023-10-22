@@ -4,9 +4,6 @@ import "./gamecard.scss";
 import PC from "../../assets/img/plateforms-logo/PC.png";
 import getPlateformLogo from "../../utils/getPlateformLogo";
 
-import Stack from "@mui/material/Stack";
-import CircularProgress from "@mui/material/CircularProgress";
-
 const GameCard = ({ game, type }) => {
   return (
     <div class="game-card">

@@ -6,14 +6,15 @@ import {
   Navigate,
 } from "react-router-dom";
 
-import '@/index.scss'
+import "@/index.scss";
 
-import Root from '@/root.jsx'
-import Home from '@/pages/homepage/Home'
-import Category from '@/pages/category/Category'
-import CategoryContainer from '@/components/category/CategoryContainer'
-import { homeGamesFilterActionLoader } from '@/services/actionloaders/home_gamesfilter'
-import { categoryGamesActionLoader } from '@/services/actionloaders/category_games' 
+import Root from "@/root.jsx";
+import Home from "@/pages/homepage/Home";
+import Category from "@/pages/category/Category";
+import CategoryContainer from "@/components/category/CategoryContainer";
+import GameInfo from "@/components/game-info/GameInfo";
+import { homeGamesFilterActionLoader } from "@/services/actionloaders/home_gamesfilter";
+import { categoryGamesActionLoader } from "@/services/actionloaders/category_games";
 
 const router = createBrowserRouter(
   [
@@ -24,26 +25,45 @@ const router = createBrowserRouter(
         {
           index: true,
           element: <Home />,
-          loader: homeGamesFilterActionLoader
+          loader: homeGamesFilterActionLoader,
         },
         {
           path: "category",
           element: <Category />,
-          loader: categoryGamesActionLoader,
           children: [
             {
-              path: "",
+              index: true,
               element: <CategoryContainer />,
-              loader: categoryGamesActionLoader
+              loader: categoryGamesActionLoader,
             },
             {
               path: ":category",
               element: <CategoryContainer />,
-              loader: categoryGamesActionLoader
-            }
+              loader: categoryGamesActionLoader,
+            },
+            {
+              path: ":category/:sort",
+              element: <CategoryContainer />,
+              loader: categoryGamesActionLoader,
+            },
+          ],
+        },
+        {
+          path: "game",
+          children: [
+            {
+              index: true,
+              element: <Home />,
+              loader: homeGamesFilterActionLoader,
+            },
+            {
+              path: ":game",
+              element: <GameInfo />,
+              //loader: homeGamesFilterActionLoader,
+            },
           ]
         }
-      ]
+      ],
     },
     {
       path: "*",

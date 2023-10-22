@@ -22,7 +22,7 @@ const GameCategory = () => {
       <div className="container-categories">
         <h2>CATEGORIES</h2>
         <div className="categories">
-          <NavLink to={"most-recent"}>Most Recent</NavLink>
+          <NavLink to={"most-recent"} className={({ isActive }) => isActive ? 'active' : ''}>Most Recent</NavLink>
           <NavLink to={"top-deals"}>Top Deals</NavLink>
           <NavLink to={"free-to-play"}>Free To Play</NavLink>
         </div>

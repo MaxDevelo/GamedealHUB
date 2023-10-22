@@ -15,3 +15,13 @@ export const urlGetUnderPriceGames = (price) => {
 export const urlGetTopDealsGames = (limit) => {
     return $url_host + "api/games/topdeals/" + limit;
 }
+
+export const urlGetTopDealsGamesBySort = (limit, sort) => {
+    return $url_host + "api/games/topdeals/" + limit + "/" + sort;
+}
+export const urlGetFreeGamesBySort = (limit, sort) => {
+    return $url_host + "api/games/freetoplay/" + limit + "/" + sort;
+}
+export const urlGetMostRecentsGamesBySort = (limit, sort) => {
+    return $url_host + "api/games/mostrecents/" + limit + "/" + sort;
+}

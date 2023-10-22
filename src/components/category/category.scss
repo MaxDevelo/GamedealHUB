@@ -121,3 +121,21 @@
 .pagination > li:first-child > span {
   margin-left: 0;
 }
+
+.information-category {
+  display:flex;
+  justify-content: space-between;
+  .sort-select {
+    border: none;
+    color: $color-button;
+    background-color: rgba(236, 26, 218, 0);
+    .css-hfutr2-MuiSvgIcon-root-MuiSelect-icon  {
+      background: #ffffff00;
+      color:white;
+      font-size:20px;
+    }
+    .css-1d3z3hw-MuiOutlinedInput-notchedOutline {
+      border:none
+    }
+  }
+}
