@@ -4,10 +4,6 @@
 - WAWRZYNIAK Maxime
 - KRAUTH Thomas
 
-## SUJET
-- choisir une ou plusieurs API en open access
-- réaliser une application web client avec React et React Router qui permet d'exploiter les données fournies par cette API
-- si besoin, vous pouvez mettre en place une API annexe à vous pour y stocker des données
 
 ## SUJET qu'on a choisi
 Pour le projet W51 nous avons décidé de faire un comparateur de prix de jeux que nous stockons dans une base de données. Pour récupérer les données, nous avons créé une API.
