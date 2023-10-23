@@ -49,12 +49,11 @@ const router = createBrowserRouter(
           ],
         },
         {
-          path: "games",
+          path: "game",
           children: [
             {
               index: true,
-              element: <Home />,
-              loader: homeGamesFilterActionLoader,
+              element: <Root />,
             },
             {
               path: ":game",

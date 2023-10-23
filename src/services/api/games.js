@@ -9,7 +9,8 @@ import {
   urlGetGameById,
   urlGetGameByName,
   urlGetGameByNameBySort,
-  urlGetMostPopularGames
+  urlGetMostPopularGames,
+  urlGetGameMedia
 } from "./config.js";
 export const get_free_games = (limit) => {
   return Promise.all([
@@ -118,11 +119,16 @@ export const get_most_recent_by_sort = (limit, sort) => {
       console.log(err);
     });
 };
-
 export const get_game_by_id = (id) => {
-  return fetch(urlGetGameById(id))
-    .then((response =>  response.json()
-    ))
+  return Promise.all([
+    fetch(urlGetGameById(id)),
+    fetch(urlGetGameMedia(id)),
+  ])
+    .then(async ([a, b]) => {
+      const data = await a.json();
+      const media = await b.json();
+      return [data, media];
+    })
     .then((data) => {
       return data;
     })

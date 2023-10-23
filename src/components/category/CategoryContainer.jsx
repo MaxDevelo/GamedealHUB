@@ -109,7 +109,7 @@ const CategoryContainer = () => {
           <div className="catalog-info">
             {currentGames && currentGames.length > 0 ? (
               currentGames.map((game) => (
-                <Link className="game-item" to={`/games/${game.id}`}>
+                <Link className="game-item" to={`/game/${game.id}`}>
                   <img
                     src={game.coverH}
                     alt="gallery grid"
