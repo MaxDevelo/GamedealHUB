@@ -11,7 +11,7 @@ import "@/index.scss";
 import Root from "@/root.jsx";
 import Home from "@/pages/homepage/Home";
 import Category from "@/pages/category/Category";
-import CategoryContainer from "@/components/category/CategoryContainer";
+import Catalog from "@/components/Catalog/Catalog";
 import GameInfo from "@/pages/infogame/InfoGame";
 import { homeGamesFilterActionLoader } from "@/services/actionloaders/home_gamesfilter";
 import { categoryGamesActionLoader } from "@/services/actionloaders/category_games";
@@ -33,17 +33,17 @@ const router = createBrowserRouter(
           children: [
             {
               index: true,
-              element: <CategoryContainer />,
+              element: <Catalog />,
               loader: categoryGamesActionLoader,
             },
             {
               path: ":category",
-              element: <CategoryContainer />,
+              element: <Catalog />,
               loader: categoryGamesActionLoader,
             },
             {
               path: ":category/:sort",
-              element: <CategoryContainer />,
+              element: <Catalog />,
               loader: categoryGamesActionLoader,
             },
           ],

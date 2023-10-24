@@ -14,9 +14,9 @@ export const categoryGamesActionLoader = async ({ request, params }) => {
   const url = new URL(request.url);
   const search = url.searchParams.get("search");
   if (search && !params.sort) {
-    return await get_game_by_name(search);
+    return await get_game_by_name(search.toLowerCase());
   } else if (search && params.sort) {
-    return await get_game_by_name_by_sort(search, params.sort);
+    return await get_game_by_name_by_sort(search.toLowerCase(), params.sort);
   }
   if (params.category === "free-to-play" && !params.sort) {
     return await get_free_games(10000);

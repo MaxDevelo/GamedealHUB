@@ -1,12 +1,12 @@
 import React from "react";
 import "./gallery.scss";
 import { Form, useLoaderData, Link, useNavigation } from "react-router-dom";
-import getPlateformLogo from "../utils/getPlateformLogo";
+import getPlateformLogo from "@/utils/getPlateformLogo";
 
 import Stack from "@mui/material/Stack";
 import CircularProgress from "@mui/material/CircularProgress";
 
-import PC from "../assets/img/plateforms-logo/PC.png";
+import PC from "@/assets/img/plateforms-logo/PC.png";
 
 const Gallery = () => {
   let navigate = useNavigation();

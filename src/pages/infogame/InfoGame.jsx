@@ -1,13 +1,13 @@
 import React from 'react'
 
-import Header from '../../components/Header'
-import GameInfo from '../../components/game-info/GameInfo'
+import Header from '@/components/Header/Header'
+import GameInfo from '@/components/GameInfo/GameInfo'
 
 function Category() {
 
   return (
     <>
-      <Header />
+      <Header type="" />
       <GameInfo />
     </>
   )

@@ -1,13 +1,13 @@
 import React from 'react'
 
-import HeaderHomePage from '../../components/HeaderHomePage'
-import Gallery from '../../components/Gallery'
+import Header from '@/components/Header/Header'
+import Gallery from '@/components/Gallery/Gallery'
 
 function Home() {
 
   return (
     <>
-      <HeaderHomePage />
+      <Header type="home" />
       <hr className="sperator-box" />
       <Gallery />
     </>

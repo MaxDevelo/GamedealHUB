@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./gameinfo.scss";
-import { useLoaderData, redirect } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import PC from "../../assets/img/plateforms-logo/PC.png";
 import METACRITIC from "../../assets/img/plateforms-logo/metacritic.png";
 import parse from "html-react-parser";
@@ -48,10 +48,10 @@ const GameInfo = () => {
           <h2>{firstGame.name}</h2>
           <div className="others">
             <p className="date">Release Date: {firstGame.date.split("T")[0]}</p>
-            <p className="author">Author: {firstGame.publisherName}</p>
+            <p className="author">Publisher: {firstGame.publisherName}</p>
           </div>
           <Carousel thumbWidth="100px" width="50%" autoPlay interval="2000" transitionTime="2000" infiniteLoop>
-            {media.map((m) => (
+            {media.slice(0,5).map((m) => (
               <div key={m.id}>
               {
                 (!m.video) && <img src={m.url} alt="PC" className="game-img" />

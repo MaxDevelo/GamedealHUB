@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./category.scss";
+import "./catalog.scss";
 import {
   useLoaderData,
   useNavigation,
@@ -45,7 +45,7 @@ const getTitleCategory = (type) => {
   }
 };
 
-const CategoryContainer = () => {
+const Catalog = () => {
   let games = useLoaderData();
   let params = useParams();
   const [currentGames, setCurrentGames] = useState(null);
@@ -166,4 +166,4 @@ const CategoryContainer = () => {
   );
 };
 
-export default CategoryContainer;
+export default Catalog;
