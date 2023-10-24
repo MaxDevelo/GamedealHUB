@@ -25,7 +25,7 @@ npm run dev
 - API a été fait par nous via une base de données qu'on a sur un serveur à distance.
 Notre API est également hébergé sur un serveur distant.
 
-#### URL API : http://gamedealhub.com:8080/
+#### URL API : http://gamedealhub.com:8080/API_TOKEN=hvbPup569HAwx-byI2kNc1zLD-6=37DAym/
 #### GET
 | | | | 
 | --- | --- | --- |
