@@ -13,7 +13,7 @@ Pour le projet W51 nous avons décidé de faire un comparateur de prix de jeux q
 
 ## DOCUMENTATION
 ```shell
-git clone git@git.unistra.fr:mwawrzyniak/w51-projet.git
+git clone git@git.unistra.fr:wawrzyniak-krauth/w51-projet.git
 # Lancer l'application web
 cd w51-projet
 npm install
@@ -34,14 +34,19 @@ Notre API est également hébergé sur un serveur distant.
 | Filtre Jeux | /api/games/mostrecents/:limit | Retourne (:limit) jeux les plus récents |
 | Filtre Jeux | /api/games/underprice/:price | Retourne les jeux en dessous du (:prix) fixé |
 | Filtre Jeux | /api/games/topdeals/:limit | Retourne (:limit) jeux avec le meilleur prix |
-| Filtre Jeux | /api/games/:game_id | Retourne les informations d'un jeux |
-
-
+| Information d'un jeu | /api/games/:game_id | Retourne les informations d'un jeux |
+| Trier jeux les moins cher | /api/games/topdeals/:limit/:sort | Trier
+| Trier jeux les plus récents | /api/games/mostrecents/:limit/:sort | Trier
+| Trier jeux gratuits | /api/games/freetoplay/:limit/:sort | Trier
+| Trier jeux les plus populaires | /api/games/popular/:limit/:sort | Trier
+| Rechercher jeux | /api/games/search/:name | Recherche
+| Filtrer jeux ayant ce genre | /api/games/:genre_id | Filtrer
 ## RESSOURCES
 
 ### FRAMEWORK
 - [Material UI](https://mui.com/)
 - Pagination
+- Carousel
 
 ### AUTRES
 - [Sass](https://sass-lang.com/)
