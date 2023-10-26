@@ -72,7 +72,7 @@
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-                padding:10px;
+                padding:20px;
                 &:hover {
                     transition: all 0.2s ease-in-out;
                     background-color: $color-game-card-hover;
@@ -141,4 +141,9 @@
 .video-box {
     margin: 0 auto;
  
+}
+
+.best-price {
+    box-shadow: #ffd900 0px 0px 20px 4px;
+    margin-top:20px !important;
 }

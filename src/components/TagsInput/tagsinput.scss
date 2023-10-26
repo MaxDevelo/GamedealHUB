@@ -1,0 +1,24 @@
+.inputtags {
+    height:auto;
+    .ReactTags__selected {
+        display:flex;
+        width: 310px;
+        flex-wrap:wrap;
+        font-size:15px;
+        .ReactTags__remove {
+            background:transparent;
+            color:red;
+            font-size:20px;
+        }
+    }
+    .ReactTags__tagInput {
+        input {
+            height:50px;
+            font-size:20px;
+            background-color: rgb(71, 71, 107);
+            border: none;
+            border-radius: 10px;
+            color:white;
+        }
+    }
+}

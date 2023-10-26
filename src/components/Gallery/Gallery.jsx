@@ -3,10 +3,9 @@ import "./gallery.scss";
 import { Form, useLoaderData, Link, useNavigation } from "react-router-dom";
 import getPlateformLogo from "@/utils/getPlateformLogo";
 
-import Stack from "@mui/material/Stack";
-import CircularProgress from "@mui/material/CircularProgress";
-
 import PC from "@/assets/img/plateforms-logo/PC.png";
+
+import Loader from "../Loading/Loader";
 
 const Gallery = () => {
   let navigate = useNavigation();
@@ -58,17 +57,7 @@ const Gallery = () => {
           </Form>
         </div>
         {navigate.state === "loading" ? (
-          <Stack
-            sx={{ display: "flex", justifyContent: "center", padding: "40px" }}
-            spacing={2}
-            direction="row"
-          >
-            <CircularProgress
-              color="secondary"
-              className="loading-catalogs"
-              size="6rem"
-            />
-          </Stack>
+          <Loader />
         ) : games ? (
           games[0].data.map((game) => (
             <Link className="game-item" to={`/game/${game.id}`}>

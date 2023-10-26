@@ -14,6 +14,14 @@ const GameInfo = () => {
   let game_info = useLoaderData();
   let firstGame = game_info[0].data[0];
   let media = game_info[1].data;
+  const minPrice = game_info[0].data.reduce(
+    (game1, game2) =>
+    game1.price < game2.price
+        ? game1
+        : game2
+  );
+  let sortGames = game_info[0].data.sort((a, b) => a.price - b.price);
+  console.log(sortGames)
   if (firstGame) {
     return (
       <div className="game-container">
@@ -32,7 +40,7 @@ const GameInfo = () => {
                   ? ""
                   : getMetacriticType(firstGame.note) === "best"
                   ? "good-note"
-                  : getMetacriticType(firstGame.price) === "middle"
+                  : getMetacriticType(firstGame.note) === "middle"
                   ? "middle-note"
                   : "low-note"
               }
@@ -73,9 +81,9 @@ const GameInfo = () => {
                 <p className="column">Price</p>
                 <p className="column">Buy</p>
               </div>
-              {game_info[0].data &&
-                game_info[0].data.map((game_link) => (
-                  <div className="game-link" key={game_link.id}>
+              {sortGames &&
+                sortGames.map((game_link) => (
+                  <div className={"game-link" + ((minPrice.seller === game_link.seller) ? " best-price" : "")} key={game_link.id}>
                     <img
                       src={getPlateformLogo(game_link.sellerName.toLowerCase())}
                       width="60px"

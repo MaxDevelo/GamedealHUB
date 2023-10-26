@@ -42,3 +42,8 @@ export const urlGetGameById = (game_id) => {
 export const urlGetGameMedia = (game_id) => {
     return $url_host + "api/game/media/" + game_id;
 }
+
+// TAGS
+export const urlGetGenreGames = (genre_id) => {
+    return $url_host + "api/games/" + genre_id;
+}

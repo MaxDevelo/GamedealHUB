@@ -9,14 +9,14 @@ export const homeGamesFilterActionLoader = async ({ request }) => {
   const url = new URL(request.url);
   const filter = url.searchParams.get("filter");
   if (filter == "free_to_play") {
-    return await get_free_games(20);
+    return await get_free_games(10);
   } else if (filter == "most_recents") {
-    return await get_most_recents_games(20);
+    return await get_most_recents_games(10);
   } else if (filter === "most_popular") {
-    return await get_most_popular_games(20);
+    return await get_most_popular_games(10);
   } else if (filter == "top_deals") {
-    return await get_top_deals(20);
+    return await get_top_deals(10);
   } else {
-    return await get_most_popular_games(20);
+    return await get_most_popular_games(10);
   }
 };

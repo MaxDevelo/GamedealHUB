@@ -34,3 +34,26 @@
     color: $color-button !important;
     border-bottom: $color-button 4px solid;
 }
+
+#genres {
+  color: white;
+  margin-top:20px;
+  border: white 1px solid;
+  width: 200px;
+  text-align:center;
+  font-size:20px;
+  margin-top:20px;
+  input {
+    color: white;
+    background: white;
+    &:hover {
+      border:white 1px solid !important;
+    }
+    &:focus {
+      border:none !important;
+    }
+    &:active {
+      border: none !important;
+    }
+  }
+}

@@ -10,11 +10,12 @@ import {
   urlGetGameByName,
   urlGetGameByNameBySort,
   urlGetMostPopularGames,
-  urlGetGameMedia
+  urlGetGameMedia,
+  urlGetGenreGames
 } from "./config.js";
 export const get_free_games = (limit) => {
   return Promise.all([
-    fetch(urlGetFreeGames(limit)),
+    fetch(urlGetFreeGames(limit ?? 20)),
     fetch(urlGetUnderPriceGames(5)),
   ])
     .then(async ([a, b]) => {
@@ -186,4 +187,21 @@ export const get_most_popular_games = (limit) => {
     .catch((err) => {
       console.log(err);
     });
+};
+export const get_genre_games = (genre_id) => {
+  return Promise.all([
+    fetch(urlGetGenreGames(genre_id)),
+    fetch(urlGetUnderPriceGames(5)),
+  ])
+   .then( async ([a, b]) => {
+      const data =  await a.json();
+      const under_price_games =  await b.json();
+      return [data, { data: under_price_games }, { type: "Genre" }];
+   })
+  .then((data) => {
+    return data;
+  })
+ .catch((err) => {
+    console.log(err);
+  });
 };

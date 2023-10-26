@@ -10,38 +10,24 @@ import {
   useLocation
 } from "react-router-dom";
 import PC from "../../assets/img/plateforms-logo/PC.png";
-
-import Stack from "@mui/material/Stack";
-import CircularProgress from "@mui/material/CircularProgress";
 import getPlateformLogo from "../../utils/getPlateformLogo";
 import ReactPaginate from "react-paginate";
 
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 
-const Loading = () => {
-  return (
-    <Stack
-      sx={{ display: "flex", justifyContent: "center", padding: "40px" }}
-      spacing={2}
-      direction="row"
-    >
-      <CircularProgress
-        color="secondary"
-        className="loading-catalogs"
-        size="6rem"
-      />
-    </Stack>
-  );
-};
+import Loader from "../Loading/Loader";
+
 const getTitleCategory = (type) => {
   switch (type) {
     case "Top Deals":
       return "Top Deals";
     case "News":
       return "Most Recent";
-    default:
+    case "Free":
       return "Free To Play";
+    default:
+      return ""
   }
 };
 
@@ -54,6 +40,7 @@ const Catalog = () => {
   const [sort, setSort] = useState(0);
   const navigate = useNavigate();
   let { search } = useLocation();
+
   const handleChangeSelect = (event) => {
     setSort(event.target.value);
     navigate("/category/" + params.category + "/" + event.target.value + search);
@@ -70,6 +57,7 @@ const Catalog = () => {
     const newOffset = (event.selected * 8) % games[0].data.length;
     setgamesOffset(newOffset);
   };
+
   return (
     <div className="catalog-games">
       <Form className="form-searchgame">
@@ -82,7 +70,7 @@ const Catalog = () => {
         />
       </Form>
       {navigation.state === "loading" ? (
-        Loading()
+        <Loader />
       ) : (
         <>
           <div className="information-category">
