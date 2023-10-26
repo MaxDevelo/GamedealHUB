@@ -4,7 +4,7 @@ import { useLoaderData } from "react-router-dom";
 import PC from "../../assets/img/plateforms-logo/PC.png";
 import METACRITIC from "../../assets/img/plateforms-logo/metacritic.png";
 import parse from "html-react-parser";
-import getPlateformLogo from "../../utils/getPlateformLogo";
+import getImageSeller from "../../utils/getPlateformLogo";
 import getMetacriticType from "../../utils/getMetacriticType";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
@@ -21,7 +21,6 @@ const GameInfo = () => {
         : game2
   );
   let sortGames = game_info[0].data.sort((a, b) => a.price - b.price);
-  console.log(sortGames)
   if (firstGame) {
     return (
       <div className="game-container">
@@ -85,7 +84,7 @@ const GameInfo = () => {
                 sortGames.map((game_link) => (
                   <div className={"game-link" + ((minPrice.seller === game_link.seller) ? " best-price" : "")} key={game_link.id}>
                     <img
-                      src={getPlateformLogo(game_link.sellerName.toLowerCase())}
+                      src={getImageSeller(game_link.sellerName.toLowerCase(), game_link.url)}
                       width="60px"
                     />
                     <p className="price">
@@ -95,7 +94,7 @@ const GameInfo = () => {
                         : "€ " +
                           Math.floor((game_link.price / 100) * 100) / 100}
                     </p>
-                    <a href={game_link.url}>BUY NOW</a>
+                    <a href={game_link.url} target="_blank">BUY NOW</a>
                   </div>
                 ))}
             </div>

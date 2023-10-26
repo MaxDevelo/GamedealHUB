@@ -7,7 +7,7 @@ import {
   Form,
   useParams,
   Link,
-  useLocation
+  useLocation,
 } from "react-router-dom";
 import PC from "../../assets/img/plateforms-logo/PC.png";
 import getPlateformLogo from "../../utils/getPlateformLogo";
@@ -27,7 +27,7 @@ const getTitleCategory = (type) => {
     case "Free":
       return "Free To Play";
     default:
-      return ""
+      return "";
   }
 };
 
@@ -38,12 +38,21 @@ const Catalog = () => {
   const [pageCount, setPageCount] = useState(0);
   const [gamesOffset, setgamesOffset] = useState(0);
   const [sort, setSort] = useState(0);
+  const [genre, setGenre] = useState(0);
   const navigate = useNavigate();
   let { search } = useLocation();
 
+  const handleChangeGenre = (event) => {
+    setGenre(event.target.value);
+    navigate("/category/" + event.target.value);
+  };
+  useEffect(() => {}, [genre, setGenre]);
+
   const handleChangeSelect = (event) => {
     setSort(event.target.value);
-    navigate("/category/" + params.category + "/" + event.target.value + search);
+    navigate(
+      "/category/" + params.category + "/" + event.target.value + search
+    );
   };
 
   const navigation = useNavigation();
@@ -91,6 +100,24 @@ const Catalog = () => {
                 ) : null}
                 <MenuItem value={2}>Oldest Release Date</MenuItem>
                 <MenuItem value={3}>Newest Release Date</MenuItem>
+              </Select>
+              <Select
+                labelId="genres"
+                id="genres"
+                value={genre}
+                name="genres"
+                label="genres"
+                className="genres-select"
+                onChange={handleChangeGenre}
+              >
+                <MenuItem value={0}>Action</MenuItem>
+                <MenuItem value={1}>Role-Playing</MenuItem>
+                <MenuItem value={2}>Aventure</MenuItem>
+                <MenuItem value={3}>Racing</MenuItem>
+                <MenuItem value={4}>Shooter</MenuItem>
+                <MenuItem value={5}>Simulation</MenuItem>
+                <MenuItem value={6}>Sport</MenuItem>
+                <MenuItem value={7}>Strategy</MenuItem>
               </Select>
             </Form>
           </div>

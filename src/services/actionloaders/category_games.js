@@ -11,36 +11,27 @@ import {
   get_genre_games,
 } from "../api/games";
 
-const searchNameGame = async (search, params) => {
-  if (search && !params.sort) {
-    return await get_game_by_name(search.toLowerCase());
-  } else if (search && params.sort) {
-    return await get_game_by_name_by_sort(search.toLowerCase(), params.sort);
-  }
-}
+const LIMIT = 20000;
 
 export const categoryGamesActionLoader = async ({ request, params }) => {
   const url = new URL(request.url);
   const search = url.searchParams.get("search");
-  searchNameGame(search, params)
-  if(!isNaN(params.category)) {
-    return await get_genre_games(params.category);
+  // Verify if a search
+  if (search) {
+    return await get_game_by_name_by_sort(search.toLowerCase(), params.sort);
   }
-  if (params.category === "free-to-play" && !params.sort) {
-    return await get_free_games(4000);
-  } else if (params.category === "most-recent" && !params.sort) {
-    return await get_most_recents_games(4000);
-  } else if (params.category === "most-popular" && !params.sort) {
-    return await get_most_popular_games(4000);
-  } else if (params.category === "top-deals" && !params.sort) {
-    return await get_top_deals(4000);
-  } else if (params.category === "top-deals" && params.sort) {
-    return await get_top_deals_by_sort(4000, params.sort);
-  } else if (params.category === "most-recent" && params.sort) {
-    return await get_most_recent_by_sort(4000, params.sort);
-  } else if (params.category === "free-to-play" && params.sort) {
-    return await get_free_games_by_sort(4000, params.sort);
+  // Verify if a category (genres)
+  if(!isNaN(params.category)) {
+    return await get_genre_games(params.category, params.sort);
+  }
+  
+  if (params.category === "top-deals") {
+    return await get_top_deals_by_sort(LIMIT, params.sort);
+  } else if (params.category === "most-recent") {
+    return await get_most_recent_by_sort(LIMIT, params.sort);
+  } else if (params.category === "free-to-play") {
+    return await get_free_games_by_sort(LIMIT, params.sort);
   } else {
-    return await get_most_recents_games(4000);
+    return await get_most_recents_games(LIMIT);
   }
 };

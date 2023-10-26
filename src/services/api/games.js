@@ -188,9 +188,9 @@ export const get_most_popular_games = (limit) => {
       console.log(err);
     });
 };
-export const get_genre_games = (genre_id) => {
+export const get_genre_games = (genre_id, sort_id) => {
   return Promise.all([
-    fetch(urlGetGenreGames(genre_id)),
+    fetch(urlGetGenreGames(genre_id, sort_id)),
     fetch(urlGetUnderPriceGames(5)),
   ])
    .then( async ([a, b]) => {

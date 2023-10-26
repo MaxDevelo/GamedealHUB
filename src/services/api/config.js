@@ -44,6 +44,6 @@ export const urlGetGameMedia = (game_id) => {
 }
 
 // TAGS
-export const urlGetGenreGames = (genre_id) => {
-    return $url_host + "api/games/" + genre_id;
+export const urlGetGenreGames = (genre_id, sort) => {
+    return $url_host + "api/games/" + genre_id + "/" + (sort ? sort : "");
 }

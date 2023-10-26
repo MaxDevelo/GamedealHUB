@@ -3,7 +3,12 @@ import steam from "../assets/img/plateforms-logo/Steam.png";
 import epic_games from "../assets/img/plateforms-logo/epic_games.png";
 import instant_gaming from "../assets/img/plateforms-logo/instant_gaming.png";
 
-export default function getImageSeller(plateform) {
+export default function getImageSeller(plateform, url) {
+  if(url) {
+    if(url.includes("instant")) return instant_gaming;
+    if(url.includes("steam")) return steam;
+    if(url.includes("gog")) return gog;
+  }
   switch (plateform) {
     case "gog":
       return gog;
