@@ -83,7 +83,7 @@ const Catalog = () => {
       ) : (
         <>
           <div className="information-category">
-            <h2>{games ? getTitleCategory(games[2].type) : "Most Recent"}</h2>
+            <h2>{games ? getTitleCategory(games[1].type) : "Most Recent"}</h2>
             <Form>
               <Select
                 labelId="sort-select"
@@ -92,10 +92,10 @@ const Catalog = () => {
                 value={sort}
                 onChange={handleChangeSelect}
               >
-                {games && games[2].type !== "Free" ? (
+                {games && games[1].type !== "Free" ? (
                   <MenuItem value={0}>Price Low to high</MenuItem>
                 ) : null}
-                {games && games[2].type !== "Free" ? (
+                {games && games[1].type !== "Free" ? (
                   <MenuItem value={1}>Price High to low</MenuItem>
                 ) : null}
                 <MenuItem value={2}>Oldest Release Date</MenuItem>
@@ -124,7 +124,7 @@ const Catalog = () => {
           <div className="catalog-info">
             {currentGames && currentGames.length > 0 ? (
               currentGames.map((game) => (
-                <Link className="game-item" to={`/game/${game.id}`}>
+                <Link className="game-item" to={`/game/${game.id}`} key={game.id}>
                   <img
                     src={game.coverH}
                     alt="gallery grid"

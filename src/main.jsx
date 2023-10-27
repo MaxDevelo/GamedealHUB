@@ -13,7 +13,7 @@ import Home from "@/pages/homepage/Home";
 import Category from "@/pages/category/Category";
 import Catalog from "@/components/Catalog/Catalog";
 import GameInfo from "@/pages/infogame/InfoGame";
-import { homeGamesFilterActionLoader } from "@/services/actionloaders/home_gamesfilter";
+import { homeGamesFilterActionLoader } from "@/services/actionloaders/home_games";
 import { categoryGamesActionLoader } from "@/services/actionloaders/category_games";
 import { gameInfoActionLoader } from "@/services/actionloaders/game_info";
 const router = createBrowserRouter(

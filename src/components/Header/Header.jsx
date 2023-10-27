@@ -20,7 +20,7 @@ const Header = ({ type }) => {
   }
   return (
     <header style={styles}>
-     <h1 class="OfficialStoresBar_officialStores__5F9Vt">Compares game prices from official stores only</h1>
+     <h1 className="OfficialStoresBar_officialStores__5F9Vt">Compares game prices from official stores only</h1>
       <nav style={{ backgrounColor: "linear-gradient(to top,rgba(245, 246, 252, 0),#101924a1)"}}>
         <ul>
           <div>

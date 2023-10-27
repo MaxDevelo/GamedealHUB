@@ -60,7 +60,7 @@ const Gallery = () => {
           <Loader />
         ) : games ? (
           games[0].data.map((game) => (
-            <Link className="game-item" to={`/game/${game.id}`}>
+            <Link className="game-item" to={`/game/${game.id}`} key={game.id}>
               <img
                 src={game.coverH}
                 alt="gallery grid"
@@ -100,7 +100,7 @@ const Gallery = () => {
         <h2>GAMES UNDER € 5</h2>
         {games && games[1] ? (
           games[1].data.data.map((game) => (
-            <Link className="game-item" to={`/game/${game.id}`}>
+            <Link className="game-item" to={`/game/${game.id}`} key={game.id}>
               <img src={game.coverH} alt="gallery grid" />
               <h3>
                 {game.nameGame.length > 40
