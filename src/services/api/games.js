@@ -158,7 +158,7 @@ export const get_most_popular_games_by_sort = async(limit, sort) => {
     });
 };
 export const get_genre_games = async (genre_id, sort_id) => {
-  return await fetch(urlGetGenreGames(enre_id, sort_id))
+  return await fetch(urlGetGenreGames(genre_id, sort_id))
   .then((response) => {
     return response.json();
   })
