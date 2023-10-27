@@ -41,6 +41,7 @@ Notre API est également hébergé sur un serveur distant.
 | Trier jeux les plus populaires | /api/games/popular/:limit/:sort | Trier
 | Rechercher jeux | /api/games/search/:name | Recherche
 | Filtrer jeux ayant ce genre | /api/games/:genre_id | Filtrer
+
 ## RESSOURCES
 
 ### FRAMEWORK
@@ -50,3 +51,14 @@ Notre API est également hébergé sur un serveur distant.
 
 ### AUTRES
 - [Sass](https://sass-lang.com/)
+
+# SCREENS
+
+## Page principale
+<img src="./screens/img1.png" width="500" height="600" />
+
+## Catalogue
+<img src="./screens/img2.png" width="500" height="600" />
+
+## Information du jeux
+<img src="./screens/img3.png" width="500" height="600" />
