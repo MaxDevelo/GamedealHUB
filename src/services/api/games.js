@@ -15,8 +15,8 @@ import {
   urlGetGenreGames
 } from "./config.js";
 
-export const get_free_games = async (limit) => {
-  return await fetch(urlGetFreeGames(limit ?? 20))
+export const get_free_games =  (limit) => {
+  return  fetch(urlGetFreeGames(limit ?? 20))
     .then(((response) => {
       return response.json();
     }))
@@ -28,9 +28,10 @@ export const get_free_games = async (limit) => {
     });
 };
 
-export const get_most_recents_games = async (limit) => {
-  return await fetch(urlGetMostRecentsGames(limit ?? 20))
+export const get_most_recents_games = (limit) => {
+  return fetch(urlGetMostRecentsGames(limit ?? 20))
     .then((response) => {
+      console.log(response)
       return response.json();
     })
     .then((data) => {
@@ -41,8 +42,8 @@ export const get_most_recents_games = async (limit) => {
     });
 };
 
-export const get_top_deals = async (limit) => {
-  return await fetch(urlGetTopDealsGames(limit ?? 20))
+export const get_top_deals =  (limit) => {
+  return  fetch(urlGetTopDealsGames(limit ?? 20))
   .then((response) => {
     return response.json();
   })
@@ -54,8 +55,8 @@ export const get_top_deals = async (limit) => {
   });
 };
 
-export const get_top_deals_by_sort = async (limit, sort) => {
-  return await fetch(urlGetTopDealsGamesBySort(limit ?? 20, sort))
+export const get_top_deals_by_sort =  (limit, sort) => {
+  return  fetch(urlGetTopDealsGamesBySort(limit ?? 20, sort))
   .then((response) => {
     return response.json();
   })
@@ -67,8 +68,8 @@ export const get_top_deals_by_sort = async (limit, sort) => {
   });
 };
 
-export const get_free_games_by_sort = async (limit, sort) => {
-  return await fetch(urlGetFreeGamesBySort(limit ?? 20, sort))
+export const get_free_games_by_sort =  (limit, sort) => {
+  return  fetch(urlGetFreeGamesBySort(limit ?? 20, sort))
   .then((response) => {
     return response.json();
   })
@@ -80,8 +81,8 @@ export const get_free_games_by_sort = async (limit, sort) => {
   });
 };
 
-export const get_most_recent_by_sort = async (limit, sort) => {
-  return await fetch(urlGetMostRecentsGamesBySort(limit ?? 20, sort))
+export const get_most_recent_by_sort =  (limit, sort) => {
+  return  fetch(urlGetMostRecentsGamesBySort(limit ?? 20, sort))
   .then((response) => {
     return response.json();
   })
@@ -97,9 +98,9 @@ export const get_game_by_id = (id) => {
       fetch(urlGetGameById(id)),
       fetch(urlGetGameMedia(id)),
     ])
-      .then(async ([a, b]) => {
-        const data = await a.json();
-        const media = await b.json();
+      .then( ([a, b]) => {
+        const data =  a.json();
+        const media =  b.json();
         return [data, media];
       })
       .then((data) => {
@@ -109,8 +110,8 @@ export const get_game_by_id = (id) => {
         console.log(err);
       });
 };
-export const get_game_by_name = async (name) => {
-  return await fetch(urlGetGameByName(name))
+export const get_game_by_name =  (name) => {
+  return  fetch(urlGetGameByName(name))
   .then((response) => {
     return response.json();
   })
@@ -121,8 +122,8 @@ export const get_game_by_name = async (name) => {
     console.log(err);
   });
 };
-export const get_game_by_name_by_sort = async (name, sort) => {
-  return await fetch(urlGetUnderPriceGames(name, sort))
+export const get_game_by_name_by_sort =  (name, sort) => {
+  return  fetch(urlGetUnderPriceGames(name, sort))
   .then((response) => {
     return response.json();
   })
@@ -133,8 +134,8 @@ export const get_game_by_name_by_sort = async (name, sort) => {
     console.log(err);
   });
 };
-export const get_most_popular_games = async (limit) => {
-  return await fetch(urlGetMostPopularGames(limit ?? 20))
+export const get_most_popular_games =  (limit) => {
+  return  fetch(urlGetMostPopularGames(limit ?? 20))
     .then((response) => {
       return response.json();
     })
@@ -145,8 +146,8 @@ export const get_most_popular_games = async (limit) => {
       console.log(err);
     });
 };
-export const get_most_popular_games_by_sort = async(limit, sort) => {
-  return await fetch(urlGetMostPopularGamesBySort(limit ?? 20, sort))
+export const get_most_popular_games_by_sort = (limit, sort) => {
+  return  fetch(urlGetMostPopularGamesBySort(limit ?? 20, sort))
     .then((response) => {
       return response.json();
     })
@@ -157,8 +158,8 @@ export const get_most_popular_games_by_sort = async(limit, sort) => {
       console.log(err);
     });
 };
-export const get_genre_games = async (genre_id, sort_id) => {
-  return await fetch(urlGetGenreGames(genre_id, sort_id))
+export const get_genre_games =  (genre_id, sort_id) => {
+  return  fetch(urlGetGenreGames(genre_id, sort_id))
   .then((response) => {
     return response.json();
   })
