@@ -19,10 +19,6 @@ const GameCard = ({ game, type }) => {
           <div class="game-price">
             {(game.price) ? (game.price == 0 ? "Free" : "€ " + game.price) : "????"}
           </div>
-          <div class="badge-plateform">
-            <img src={PC} alt="" width="40" />
-            <img src={getPlateformLogo(game.sellerName)} alt="" width="40" />
-          </div>
         </div>
       </div>
     </Link>

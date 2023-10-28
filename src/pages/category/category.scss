@@ -35,3 +35,71 @@
     border-bottom: $color-button 4px solid;
 }
 
+.categoryPage {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  
+}
+@media only screen and (max-width: 810px) { 
+  header {
+      height:auto;
+      width:100%;
+  }
+  .categories-games-container {
+    flex-direction: column-reverse !important;
+    align-items: center !important;
+    .container-categories {
+      margin-bottom:20px;
+    }
+  }
+  .catalog-games {
+    width: 80% !important;
+    margin:0 !important;
+    h3 {
+      font-size:20px !important;
+    }
+  }
+  .categories-games-container .game-item {
+     width:100% !important;
+  }
+  .btn-see-all-games {
+      width:100% !important; 
+  }
+  .pagination {
+    .page-link  {
+      width:auto;
+    }
+  }
+}
+@media only screen and (max-width: 410px) { 
+  header {
+    height:auto;
+    width:100%;
+}
+.categories-games-container {
+  flex-direction: column-reverse !important;
+  align-items: center !important;
+  .container-categories {
+    margin-bottom:20px;
+  }
+}
+.catalog-games {
+  width: 80% !important;
+  margin:0 !important;
+  h3 {
+    font-size:20px !important;
+  }
+}
+.categories-games-container .game-item {
+   width:100% !important;
+}
+.btn-see-all-games {
+    width:100% !important; 
+}
+.pagination {
+  .page-link  {
+    width:auto;
+  }
+}
+}

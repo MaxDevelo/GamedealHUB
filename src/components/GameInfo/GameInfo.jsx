@@ -27,7 +27,7 @@ const GameInfo = () => {
       <div className="game-container">
       <div className="first-box">
         <div className="game-info">
-          <img src={firstGame.coverH ? firstGame.coverH : ""} alt="PC" className="game-img" />
+          <img src={firstGame.coverV ? firstGame.coverV : ""} alt="PC" className="game-img" />
           <div className="plateforms">
             <img src={PC} alt="PC" className="plateform-img" width="50px" />
           </div>

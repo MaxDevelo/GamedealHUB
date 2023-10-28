@@ -1,0 +1,41 @@
+.homePage {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+@media only screen and (max-width: 810px) { 
+    header {
+        height:auto;
+    }
+    .game-low-price {
+        margin-top:40px;
+        width:100% !important;
+        h2 {
+            font-size:30px !important;
+        }
+    }
+    .catalog-games .game-item {
+       width:100% !important;
+    }
+    .btn-see-all-games {
+        width:100% !important; 
+    }
+}
+@media only screen and (max-width: 410px) { 
+    header {
+        height:auto;
+    }
+    .game-low-price {
+        margin-top:40px;
+        width:100% !important;
+        h2 {
+            font-size:30px !important;
+        }
+    }
+    .catalog-games .game-item {
+        width:100% !important;
+     }
+     .btn-see-all-games {
+        width:100% !important; 
+    }
+}

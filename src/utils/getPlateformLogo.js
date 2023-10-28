@@ -2,6 +2,7 @@ import gog from "../assets/img/plateforms-logo/GOG.png";
 import steam from "../assets/img/plateforms-logo/Steam.png";
 import epic_games from "../assets/img/plateforms-logo/epic_games.png";
 import instant_gaming from "../assets/img/plateforms-logo/instant_gaming.png";
+import PC from "../assets/img/plateforms-logo/PC.png";
 
 export default function getImageSeller(plateform, url) {
   if(url) {
