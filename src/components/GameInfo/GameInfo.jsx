@@ -11,6 +11,7 @@ import { Carousel } from "react-responsive-carousel";
 import ReactPlayer from 'react-player';
 
 const GameInfo = () => {
+  window.scrollTo(0, 0)
   let game_info = useLoaderData();
   let firstGame = game_info[0].data[0];
   let media = game_info[1].data;
@@ -26,7 +27,7 @@ const GameInfo = () => {
       <div className="game-container">
       <div className="first-box">
         <div className="game-info">
-          <img src={firstGame.coverH} alt="PC" className="game-img" />
+          <img src={firstGame.coverH ? firstGame.coverH : ""} alt="PC" className="game-img" />
           <div className="plateforms">
             <img src={PC} alt="PC" className="plateform-img" width="50px" />
           </div>

@@ -9,7 +9,6 @@ import {
   Link,
   useLocation,
 } from "react-router-dom";
-import PC from "../../assets/img/plateforms-logo/PC.png";
 import getPlateformLogo from "../../utils/getPlateformLogo";
 import ReactPaginate from "react-paginate";
 
@@ -126,7 +125,7 @@ const Catalog = () => {
               currentGames.map((game) => (
                 <Link className="game-item" to={`/game/${game.id}`} key={game.id}>
                   <img
-                    src={game.coverH}
+                    src={game.thumbnail ? game.thumbnail : game.coverH}
                     alt="gallery grid"
                     className="image_cover"
                   />
@@ -136,16 +135,9 @@ const Catalog = () => {
                         ? game.nameGame.substring(0, 20).concat("...")
                         : game.nameGame}
                     </h3>
-                    <div className="logoPlateform">
-                      <img src={PC} alt="plateform" />
-                      <img
-                        src={getPlateformLogo(game.sellerName)}
-                        alt="plateform"
-                      />
-                    </div>
                   </div>
                   <p className="price">
-                    {game.price == 0 ? "Free" : "€ " + game.price}
+                    {(game.price) ? (game.price == 0 ? "Free" : "€ " + game.price) : "????"}
                   </p>
                 </Link>
               ))

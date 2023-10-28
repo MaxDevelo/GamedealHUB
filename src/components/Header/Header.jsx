@@ -11,7 +11,7 @@ const Header = ({ type }) => {
   let styles  = {};
   if(games && games[0].data[0]) {
     styles = {
-      backgroundImage: "linear-gradient(to bottom,rgba(245, 246, 252, 0),#101924) ,url('" + games[0].data[0].coverH + "')",
+      backgroundImage: "linear-gradient(to bottom,rgba(245, 246, 252, 0),#101924) ,url('" + ((games[0].data[0].background) ? games[0].data[0].background : games[0].data[0].coverH) + "')",
     }
   } else {
     styles = {

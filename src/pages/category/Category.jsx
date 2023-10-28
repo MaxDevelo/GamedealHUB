@@ -6,7 +6,7 @@ import "./category.scss";
 
 const Category = () => {
   return (
-    <>
+    <div className="categoryPage">
       <Header type="" />
       <div className="categories-games-container">
         <Outlet />
@@ -41,7 +41,7 @@ const Category = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 export default Category;

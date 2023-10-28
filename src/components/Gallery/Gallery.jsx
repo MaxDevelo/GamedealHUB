@@ -2,9 +2,6 @@ import React from "react";
 import "./gallery.scss";
 import { Form, useLoaderData, Link, useNavigation } from "react-router-dom";
 import getPlateformLogo from "@/utils/getPlateformLogo";
-
-import PC from "@/assets/img/plateforms-logo/PC.png";
-
 import Loader from "../Loading/Loader";
 
 const Gallery = () => {
@@ -62,7 +59,7 @@ const Gallery = () => {
           games[0].data.map((game) => (
             <Link className="game-item" to={`/game/${game.id}`} key={game.id}>
               <img
-                src={game.coverH}
+                src={game.thumbnail ? game.thumbnail : game.coverH}
                 alt="gallery grid"
                 className="image_cover"
               />
@@ -72,16 +69,9 @@ const Gallery = () => {
                     ? game.nameGame.substring(0, 20).concat("...")
                     : game.nameGame}
                 </h3>
-                <div className="logoPlateform">
-                  <img src={PC} alt="plateform" />
-                  <img
-                    src={getPlateformLogo(game.sellerName)}
-                    alt="plateform"
-                  />
-                </div>
               </div>
               <p className="price">
-                {game.price == 0 ? "Free" : "€ " + game.price}
+                {(game.price) ?  (game.price == 0 ? "Free" : "€ " + game.price) : "????"}
               </p>
             </Link>
           ))
@@ -101,13 +91,13 @@ const Gallery = () => {
         {games && games[1] ? (
           games[1].data.data.map((game) => (
             <Link className="game-item" to={`/game/${game.id}`} key={game.id}>
-              <img src={game.coverH} alt="gallery grid" />
+              <img src={game.thumbnail ? game.thumbnail : game.coverH} alt="gallery grid" />
               <h3>
                 {game.nameGame.length > 40
                   ? game.nameGame.substring(0, 40).concat("...")
                   : game.nameGame}
               </h3>
-              <p className="price">€ {game.price_game}</p>
+              <p className="price">{(game.price_game) ? ("€ " +  game.price_game) : "????" }</p>
             </Link>
           ))
         ) : (
