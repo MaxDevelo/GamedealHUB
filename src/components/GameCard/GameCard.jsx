@@ -17,7 +17,7 @@ const GameCard = ({ game, type }) => {
         </h4>
         <div class="game-bottom-details">
           <div class="game-price">
-            {(game.price) ? (game.price == 0 ? "Free" : "€ " + game.price) : "????"}
+            {(game.price != null) ? (game.price == 0 ? "Free" : "€ " + game.price) : "????"}
           </div>
         </div>
       </div>

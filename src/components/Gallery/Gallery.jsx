@@ -71,7 +71,7 @@ const Gallery = () => {
                 </h3>
               </div>
               <p className="price">
-                {(game.price) ?  (game.price == 0 ? "Free" : "€ " + game.price) : "????"}
+                {(game.price != null) ?  (game.price == 0 ? "Free" : "€ " + game.price) : "????"}
               </p>
             </Link>
           ))
@@ -97,7 +97,7 @@ const Gallery = () => {
                   ? game.nameGame.substring(0, 40).concat("...")
                   : game.nameGame}
               </h3>
-              <p className="price">{(game.price_game) ? ("€ " +  game.price_game) : "????" }</p>
+              <p className="price">{(game.price_game != null) ? ("€ " +  game.price_game) : "????" }</p>
             </Link>
           ))
         ) : (

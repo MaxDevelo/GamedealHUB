@@ -137,7 +137,7 @@ const Catalog = () => {
                     </h3>
                   </div>
                   <p className="price">
-                    {(game.price) ? (game.price == 0 ? "Free" : "€ " + game.price) : "????"}
+                    {(game.price != null) ? (game.price == 0 ? "Free" : "€ " + game.price) : "????"}
                   </p>
                 </Link>
               ))
