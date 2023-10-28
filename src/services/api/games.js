@@ -98,9 +98,9 @@ export const get_game_by_id = (id) => {
       fetch(urlGetGameById(id)),
       fetch(urlGetGameMedia(id)),
     ])
-      .then( ([a, b]) => {
-        const data =  a.json();
-        const media =  b.json();
+      .then( async ([a, b]) => {
+        const data =  await a.json();
+        const media =  await b.json();
         return [data, media];
       })
       .then((data) => {
