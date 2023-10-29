@@ -49,3 +49,17 @@ export const urlGetGameMedia = (game_id) => {
 export const urlGetGenreGames = (genre_id, sort) => {
     return $url_host + "api/games/" + genre_id + "/" + (sort ? sort : "");
 }
+
+// USERS
+export const urlSignup = () => {
+    return $url_host + "api/users/signup";
+}
+export const urlSignin = () => {
+    return $url_host + "api/users/signin";
+}
+export const urlWishlist = () => {
+    return $url_host + "api/users/wishlist";
+}
+export const urlGetWishlistById = () => {
+    return $url_host + "api/users/getwishlist";
+}

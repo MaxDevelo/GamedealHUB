@@ -1,7 +1,7 @@
 import React from "react";
 
 import Header from "@/components/Header/Header";
-import useAuth, { signinUser } from "@/auth";
+import { signinUser } from "@/auth";
 import { Form, redirect } from "react-router-dom";
 import "./signin.scss";
 

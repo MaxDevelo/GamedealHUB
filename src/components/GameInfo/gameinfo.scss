@@ -35,6 +35,15 @@
                 font-weight: 800;
             }
         }
+        form {
+            width:100%;
+        }
+    }
+    .wishlist-button {
+        border: $color-button 2px solid;
+        border-radius:5px;
+        font-weight: 900;
+        width:100%;
     }
     .game-details {
         display: flex;

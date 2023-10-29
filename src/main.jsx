@@ -11,8 +11,9 @@ import "@/index.scss";
 import Root from "@/root.jsx";
 import Home from "@/pages/homepage/Home";
 import Category from "@/pages/category/Category";
+import { addWishlist } from '@/components/GameInfo/GameInfo'
 import Catalog from "@/components/Catalog/Catalog";
-import GameInfo from "@/pages/infogame/InfoGame";
+import GameInfo  from "@/pages/infogame/InfoGame";
 import Signup, { createUser } from "@/pages/signup/Signup";
 import Signin, { getUser } from "@/pages/signin/Signin";
 import { homeGamesFilterActionLoader } from "@/services/actionloaders/home_games";
@@ -71,6 +72,7 @@ const router = createBrowserRouter(
               path: ":game",
               element: <GameInfo />,
               loader: gameInfoActionLoader,
+              action: addWishlist
             },
           ]
         }
