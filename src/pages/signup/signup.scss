@@ -1,0 +1,28 @@
+@import "@/assets/styles/_color";
+@import "@/assets/styles/_fonts";
+
+.authform {
+    h2 {
+        text-align:center;
+        font-size:50px;
+    }
+  height: auto;
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin: 0 auto;
+    fieldset {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      margin: 0 auto;
+      
+      input {
+        width: auto;
+        height: 40px;
+      }
+    }
+
+  }
+}

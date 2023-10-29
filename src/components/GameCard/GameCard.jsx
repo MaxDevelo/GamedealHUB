@@ -6,17 +6,17 @@ import getPlateformLogo from "../../utils/getPlateformLogo";
 
 const GameCard = ({ game, type }) => {
   return (
-    <Link class="game-card" to={`/game/${game.id}`} key={game.id}>
-      <div class="badge">{type}</div>
-      <div class="game-tumb">
+    <Link className="game-card" to={`/game/${game.id}`} key={game.id}>
+      <div className="badge">{type}</div>
+      <div className="game-tumb">
         <img src={game.coverH ? game.coverH : ""} alt="" width="600" />
       </div>
-      <div class="game-details">
+      <div className="game-details">
         <h4>
-          <a href="">{game.nameGame}</a>
+          {game.nameGame}
         </h4>
-        <div class="game-bottom-details">
-          <div class="game-price">
+        <div className="game-bottom-details">
+          <div className="game-price">
             {(game.price != null) ? (game.price == 0 ? "Free" : "€ " + game.price) : "????"}
           </div>
         </div>

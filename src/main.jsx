@@ -13,6 +13,8 @@ import Home from "@/pages/homepage/Home";
 import Category from "@/pages/category/Category";
 import Catalog from "@/components/Catalog/Catalog";
 import GameInfo from "@/pages/infogame/InfoGame";
+import Signup, { createUser } from "@/pages/signup/Signup";
+import Signin, { getUser } from "@/pages/signin/Signin";
 import { homeGamesFilterActionLoader } from "@/services/actionloaders/home_games";
 import { categoryGamesActionLoader } from "@/services/actionloaders/category_games";
 import { gameInfoActionLoader } from "@/services/actionloaders/game_info";
@@ -26,6 +28,16 @@ const router = createBrowserRouter(
           index: true,
           element: <Home />,
           loader: homeGamesFilterActionLoader,
+        },
+        {
+          path: 'signup',
+          element: <Signup />,
+          action: createUser
+        },
+        {
+          path: 'signin',
+          element: <Signin />,
+          action: getUser,
         },
         {
           path: "category",
