@@ -1,4 +1,4 @@
-const $url_host = "http://gamedealhub.com:8080/API_TOKEN=hvbPup569HAwx-byI2kNc1zLD-6=37DAym/";
+const $url_host = "http://gamedealhub.net/API_TOKEN=hvbPup569HAwx-byI2kNc1zLD-6=37DAym/";
 
 export const urlGetFreeGames = (limit) => {
     return $url_host + "api/games/freetoplay/" + limit;
