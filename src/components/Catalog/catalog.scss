@@ -8,66 +8,65 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: flex-start;
+  width:80%;
+  margin:0 auto;
+  background-color: #23222F !important;
   h2 {
     font-size: 30px;
     font-weight: 800;
   }
   .catalog-games {
-    width: 50%;
+    width:60%;
     margin-left: 50px;
     h2 {
       font-size: 40px;
       font-weight: 800;
     }
-    .catalog-info {
-      .game-item {
-        background: $color-game-card;
-        border-radius: 5px;
-        color: inherit;
-        text-decoration: none;
-        display: flex;
-        margin: 0 auto;
-        width: 100%;
-        flex-wrap: nowrap;
-        justify-content: space-between;
-        align-items: center;
-        height: auto;
-        margin-top: 15px;
-        border-right: 4px $color-button solid;
-        .game-info {
-          display: flex;
-          flex-direction: column;
-          margin-left: 10px;
+    .game-item {
+      background: $color-game-card;
+      color: inherit;
+      text-decoration: none;
+      display: flex;
+      margin: 0 auto;
+      width: 100%;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      height: auto;
+      margin-top:2px;
+      .game-info {
+        display:flex;
+        flex-direction: column;
+        margin-left:10px;
+        -ms-flex-align: start;
+      }
+      .logoPlateform {
+        display:flex;
+        img {
+          width:25px !important;
+          margin-right:10px;
         }
-        .logoPlateform {
-          margin-top: 10px;
-          display: flex;
-          img {
-            width: 40px;
-            margin-right: 10px;
-          }
-        }
-        h3 {
-          font-size: 30px;
-        }
-        .image_cover {
-          width: 250px;
-          max-height: 20vh;
-          border-top-left-radius: 5px;
-          border-bottom-left-radius: 5px;
-        }
-        .price {
-          margin-right: 20px;
-          font-size: $font-size-large;
-          font-weight: 800;
-        }
-        &:hover {
-          background: $color-game-card-hover;
-          transition: all 0.3s ease-in-out;
-          border-right: 30px $color-button solid;
-          img {
-            filter: blur(2px);
-          }
+      }
+      h3 {
+        font-size: 20px;
+        padding:0;
+      }
+      .image_cover {
+        width: 150px;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+      
+      }
+      .price {
+        margin-right: 20px;
+        font-size: 22px;
+        font-weight: 800;
+        margin-top:20px;
+      }
+      &:hover {
+        border: 2px solid white;
+        img {
+          filter: blur(2px);
         }
       }
     }
@@ -124,6 +123,7 @@
 
 .information-category {
   display:flex;
+ 
   justify-content: space-between;
   .sort-select {
     border: none;

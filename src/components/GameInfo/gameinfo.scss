@@ -4,6 +4,7 @@
 .game-container {
     display:flex;
     flex-wrap: wrap;
+    background-size: cover !important;
     .game-info {
         display:flex;
         flex-direction: column;

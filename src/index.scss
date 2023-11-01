@@ -9,7 +9,7 @@
   color-scheme: light dark;
   color: $color-text;
   background-color: $color-background;
-
+  font-family: $main-font-family;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -24,6 +24,7 @@
   box-sizing: border-box;
   font-family: $font-size-base;
   list-style: none;
+  
   text-decoration: none;
 }
 .sperator-box {
@@ -34,6 +35,7 @@
 body {
   margin: 0;
   min-width: 320px;
+  
 }
 
 h1 {

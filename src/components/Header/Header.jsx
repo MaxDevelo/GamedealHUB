@@ -6,26 +6,12 @@ import GameCard from "../GameCard/GameCard";
 import Carousel from "react-elastic-carousel";
 const breakPoints = [
   { width: 1, itemsToShow: 1 },
-  { width: 550, itemsToShow: 2 },
-  { width: 768, itemsToShow: 3 },
-  { width: 1200, itemsToShow: 4 },
 ];
 const Header = ({ type }) => {
   const games = useLoaderData();
-  let styles = {};
-  if (games && games[0].data[0] && type != "home") {
-    styles = {
-      backgroundImage:
-        "linear-gradient(to bottom,rgba(245, 246, 252, 0),#272635) ,url('" +
-        (games[0].data[0].background
-          ? games[0].data[0].background
-          : games[0].data[0].coverH) +
-        "')",
-    };
-  }
 
   return (
-    <header style={styles}>
+    <header>
       <h1 className="brand">Compares game prices from official stores only</h1>
       <nav className="navbar">
         <ul>

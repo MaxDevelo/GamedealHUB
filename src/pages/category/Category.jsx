@@ -8,7 +8,7 @@ const Category = () => {
   document.title = "Deals | GameDealHub"
   return (
     <div className="categoryPage">
-      <Header type="" />
+      <Header type="catalogs" />
       <div className="categories-games-container">
         <Outlet />
 
