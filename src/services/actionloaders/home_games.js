@@ -1,24 +1,14 @@
 import {
-  get_free_games,
-  get_most_recents_games,
-  get_top_deals,
-  get_most_popular_games
+  get_category_games
 } from "../api/games_home";
-
-const LIMIT = 10;
+import { redirect } from "react-router-dom";
+const LIMIT = 20;
 
 export const homeGamesFilterActionLoader = async ({ request }) => {
   const url = new URL(request.url);
-  const filter = url.searchParams.get("filter");
-  if (filter == "free_to_play") {
-    return await get_free_games(LIMIT);
-  } else if (filter == "most_recents") {
-    return await get_most_recents_games(LIMIT);
-  } else if (filter === "most_popular") {
-    return await get_most_popular_games(LIMIT);
-  } else if (filter == "top_deals") {
-    return await get_top_deals(LIMIT);
-  } else {
-    return await get_most_popular_games(LIMIT);
+  const search = url.searchParams.get("search");
+  if (search) {
+    return redirect("/category/most-popular?" + url.searchParams)
   }
+  return await get_category_games(LIMIT);
 };

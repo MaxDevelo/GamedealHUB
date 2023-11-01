@@ -9,7 +9,7 @@ import {
   Link,
   useLocation,
 } from "react-router-dom";
-import getPlateformLogo from "../../utils/getPlateformLogo";
+import PC from "../../assets/img/plateforms-logo/PC.png";
 import ReactPaginate from "react-paginate";
 
 import MenuItem from "@mui/material/MenuItem";
@@ -57,26 +57,17 @@ const Catalog = () => {
   const navigation = useNavigation();
 
   useEffect(() => {
-    const endOffset = gamesOffset + 8;
+    const endOffset = gamesOffset + 20;
     setCurrentGames(games[0].data.slice(gamesOffset, endOffset));
-    setPageCount(Math.ceil(games[0].data.length / 8));
+    setPageCount(Math.ceil(games[0].data.length / 20));
   }, [games[0].data, gamesOffset]);
   const handlePageClick = (event) => {
-    const newOffset = (event.selected * 8) % games[0].data.length;
+    const newOffset = (event.selected * 20) % games[0].data.length;
     setgamesOffset(newOffset);
   };
 
   return (
     <div className="catalog-games">
-      <Form className="form-searchgame">
-        <input
-          className="search-game"
-          type="text"
-          name="search"
-          id="search"
-          placeholder="Search by the title ..."
-        />
-      </Form>
       {navigation.state === "loading" ? (
         <Loader />
       ) : (
@@ -124,22 +115,31 @@ const Catalog = () => {
             {currentGames && currentGames.length > 0 ? (
               currentGames.map((game) => (
                 <Link className="game-item" to={`/game/${game.id}`} key={game.id}>
-                  <img
-                    src={game.thumbnail ? game.thumbnail : game.coverH}
-                    alt="gallery grid"
-                    className="image_cover"
-                  />
-                  <div className="game-info">
-                    <h3>
-                      {game.nameGame.length > 20
-                        ? game.nameGame.substring(0, 20).concat("...")
-                        : game.nameGame}
-                    </h3>
-                  </div>
-                  <p className="price">
-                    {(game.price != null) ? (game.price == 0 ? "Free" : "€ " + game.price) : "????"}
-                  </p>
-                </Link>
+      <div className="detail-product">
+        <img
+          src={game.thumbnail ? game.thumbnail : game.coverH}
+          alt="gallery grid"
+          className="image_cover"
+        />
+        <div className="game-info">
+          <h3>
+            {game.nameGame.length > 20
+              ? game.nameGame.substring(0, 20).concat("...")
+              : game.nameGame}
+          </h3>
+          <div className="logoPlateform">
+            <img src={PC} />
+          </div>
+        </div>
+      </div>
+      <p className={game.price == 0 ? "price-free" : "price"}>
+        {game.price != null
+          ? game.price == 0
+            ? "Free"
+            : "€ " + game.price
+          : "????"}
+      </p>
+    </Link>
               ))
             ) : (
               <h2 className="nogamefound">No games found</h2>

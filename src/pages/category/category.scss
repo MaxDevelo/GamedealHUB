@@ -12,9 +12,8 @@
     .categories {
       display: flex;
       flex-direction: column;
-      background-color: $color-game-card;
       padding: 3px 100px 55px 20px;
-      border-radius: 10px;
+
       a {
         background: transparent;
         font-size: 25px;
@@ -39,6 +38,7 @@
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  background-image: url('../../assets/img/bg.jpg');
   
 }
 @media only screen and (max-width: 810px) { 

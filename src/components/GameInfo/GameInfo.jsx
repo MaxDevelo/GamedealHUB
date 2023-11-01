@@ -72,6 +72,7 @@ export default function GameInfo() {
     setGetVerifyWishlist(res)
   });
   if (firstGame) {
+    document.title = "Buy cheap " + firstGame.name + " | GameDealHub";
     return (
       <div className="game-container">
         <div className="first-box">

@@ -1,62 +1,120 @@
-import React from "react";
+import * as React from "react";
 import "./gallery.scss";
-import { Form, useLoaderData, Link, useNavigation } from "react-router-dom";
-import getPlateformLogo from "@/utils/getPlateformLogo";
+import { useLoaderData, Link, useNavigation } from "react-router-dom";
+import Carousel from "react-elastic-carousel";
 import Loader from "../Loading/Loader";
+import PC from "../../assets/img/plateforms-logo/PC.png";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import Box from "@mui/material/Box";
+
+const breakPoints = [
+  { width: 1, itemsToShow: 1 },
+  { width: 550, itemsToShow: 2 },
+  { width: 768, itemsToShow: 3 },
+  { width: 1200, itemsToShow: 4 },
+];
+
+const GameItem = ({ game }) => {
+  return (
+    <Link className="game-item" to={`/game/${game.id}`} key={game.id}>
+      <div className="detail-product">
+        <img
+          src={game.thumbnail ? game.thumbnail : game.coverH}
+          alt="gallery grid"
+          className="image_cover"
+        />
+        <div className="game-info">
+          <h3>
+            {game.nameGame.length > 20
+              ? game.nameGame.substring(0, 20).concat("...")
+              : game.nameGame}
+          </h3>
+          <div className="logoPlateform">
+            <img src={PC} />
+          </div>
+        </div>
+      </div>
+      <p className={game.price == 0 ? "price-free" : "price"}>
+        {game.price != null
+          ? game.price == 0
+            ? "Free"
+            : "€ " + game.price
+          : "????"}
+      </p>
+    </Link>
+  );
+};
 
 const Gallery = () => {
   let navigate = useNavigation();
+  const [valueTab, setValueTab] = React.useState(1);
 
+  const handleChangeTabs = (event, newValue) => {
+    setValueTab(newValue);
+  };
+  React.useEffect(() => {}, [valueTab, setValueTab]);
   const games = useLoaderData();
   return (
     <div className="catalog-games-container">
       <div className="catalog-games">
         <div className="catalog-info">
-          <h2>List Games</h2>
-          <Form>
-            <input
-              type="hidden"
-              name="filter"
-              id="filter"
-              value="most_popular"
-            />
-            <button className="btn-catalog-form" type="submit">
-              Most Popular
-            </button>
-          </Form>
-          <Form>
-            <input
-              type="hidden"
-              name="filter"
-              id="filter"
-              value="most_recents"
-            />
-            <button className="btn-catalog-form" type="submit">
-              Most Recent
-            </button>
-          </Form>
-          <Form>
-            <input type="hidden" name="filter" id="filter" value="top_deals" />
-            <button className="btn-catalog-form" type="submit">
-              Top Deals
-            </button>
-          </Form>
-          <Form>
-            <input
-              type="hidden"
-              name="filter"
-              id="filter"
-              value="free_to_play"
-            />
-            <button className="btn-catalog-form" type="submit">
-              Free To Play
-            </button>
-          </Form>
+          <h2>Deals</h2>
         </div>
         {navigate.state === "loading" ? (
           <Loader />
         ) : games ? (
-          games[0].data.map((game) => (
+          <div className="categoryGames">
+            <Box
+              sx={{ borderBottom: 1, borderColor: "divider" }}
+              className="tabs"
+            >
+              <Tabs
+                value={valueTab}
+                onChange={handleChangeTabs}
+                aria-label="basic tabs example"
+              >
+                <Tab label="Top Deals" value={1} />
+                <Tab label="News" value={2} />
+                <Tab label="Free to play" value={3} />
+              </Tabs>
+            </Box>
+            <div className={valueTab == 1 ? "topDeals" : "topDeals hide"}>
+              <h3>Top Deals</h3>
+              {games[0].data.map((game) => (
+                <GameItem game={game} />
+              ))}
+              <Link to={"/category/top-deals"} className="btn-see-all-games">
+                Browse All Top Deals Games
+              </Link>
+            </div>
+            <div className={valueTab == 2 ? "mostrecents" : "mostrecents hide"}>
+              <h3>News</h3>
+              {games[1].data.map((game) => (
+                <GameItem game={game} />
+              ))}
+              <Link to={"/category/News"} className="btn-see-all-games">
+                Browse All News Games
+              </Link>
+            </div>
+            <div className={valueTab == 3 ? "freeGames" : "freeGames hide"}>
+              <h3>Free to play</h3>
+              {games[2].data.map((game) => (
+                <GameItem game={game} />
+              ))}
+              <Link to={"/category/free-to-play"} className="btn-see-all-games">
+                Browse All Free Games
+              </Link>
+            </div>
+          </div>
+        ) : (
+          <h2>No games found</h2>
+        )}
+      </div>
+      <div className="containerPopularGames">
+        <h2>Most Popular</h2>
+        <Carousel breakPoints={breakPoints} className="mostPopular">
+          {games[3].data.slice(0, 8).map((game) => (
             <Link className="game-item" to={`/game/${game.id}`} key={game.id}>
               <img
                 src={game.thumbnail ? game.thumbnail : game.coverH}
@@ -70,39 +128,16 @@ const Gallery = () => {
                     : game.nameGame}
                 </h3>
               </div>
-              <p className="price">
-                {(game.price != null) ?  (game.price == 0 ? "Free" : "€ " + game.price) : "????"}
+              <p className={game.price == 0 ? "price-free" : "price"}>
+                {game.price != null
+                  ? game.price == 0
+                    ? "Free"
+                    : "€ " + game.price
+                  : "????"}
               </p>
             </Link>
-          ))
-        ) : (
-          <h2>No games found</h2>
-        )}
-        {navigate.state !== "loading" && games && games[0].data.length > 0 ? (
-          <Link to={"/category/" + ((games[2].type == "Free") ? "free-to-play" : (games[2].type == "News" ? "most-recent" : "top-deals"))} className="btn-see-all-games">
-            See all games
-          </Link>
-        ) : (
-          ""
-        )}
-      </div>
-      <div className="game-low-price">
-        <h2>GAMES UNDER € 5</h2>
-        {games && games[1] ? (
-          games[1].data.data.map((game) => (
-            <Link className="game-item" to={`/game/${game.id}`} key={game.id}>
-              <img src={game.thumbnail ? game.thumbnail : game.coverH} alt="gallery grid" />
-              <h3>
-                {game.nameGame.length > 40
-                  ? game.nameGame.substring(0, 40).concat("...")
-                  : game.nameGame}
-              </h3>
-              <p className="price">{(game.price_game != null) ? ("€ " +  game.price_game) : "????" }</p>
-            </Link>
-          ))
-        ) : (
-          <h2>No games found</h2>
-        )}
+          ))}
+        </Carousel>
       </div>
     </div>
   );

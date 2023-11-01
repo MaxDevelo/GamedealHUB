@@ -22,7 +22,7 @@ export const createUser = async ({ request }) => {
 export default function Signup() {
   return (
     <div className="homePage">
-      <Header type="home" />
+      <Header type="" />
       <div className="authform">
         <h2>Signup</h2>
         <Form method="POST" action="/signup">

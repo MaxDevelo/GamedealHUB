@@ -4,6 +4,7 @@
 .game-container {
     display:flex;
     flex-wrap: wrap;
+    background-size: cover !important;
     .game-info {
         display:flex;
         flex-direction: column;
@@ -17,7 +18,6 @@
             align-items: center;
             justify-content: center;
             height: 400px;
-
             overflow: hidden;
         }
         .plateforms{
@@ -40,7 +40,7 @@
         }
     }
     .wishlist-button {
-        border: $color-button 2px solid;
+        border: $color-button 1px solid;
         border-radius:5px;
         font-weight: 900;
         width:100%;

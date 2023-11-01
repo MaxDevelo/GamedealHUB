@@ -4,83 +4,71 @@
 header {
   z-index: 100;
   width: 100%;
-  height: 60vh;
+  margin: 0 auto;
   background-size: cover;
-  nav {
+  .navbar {
     position: relative;
     width: 100%;
     margin: 0 auto;
-    padding: 20px 30px;
     display: flex;
-    align-items: center;
+    background: $color-navbar!important;
     justify-content: flex-end;
-    background-image: linear-gradient(
-      to top,
-      rgba(245, 246, 252, 0),
-      #101924a1
-    );
-  }
-  .logo {
-    width: 200px;
-    position: absolute;
-    left: 0;
-    top: 0;
-  }
-  ul {
-    display: flex;
-    align-items: center;
-    li {
-      text-decoration: none;
-      list-style: none;
-      a {
-        margin: 0 10px;
-        position: relative;
-        font-size: 20px;
-        font-weight: 600;
-        color: $color-text;
-        padding: 10px 30px;
-        border: 2px solid $color-button;
-        &:hover {
-          color: $color-button;
-          border-bottom: 10px solid $color-button;
-          font-weight: 800;
-          transition: all 0.3s;
+    .logo {
+      width: 200px;
+      position: absolute;
+      top:0;
+      left:0;
+    }
+    ul {
+      display:flex;
+      align-items: center;
+      flex-wrap: wrap;
+      flex-direction: row;
+      height: auto;
+      padding:20px;
+      li {
+        text-decoration: none;
+        list-style: none;
+        a {
+          position: relative;
+          font-size: 20px;
+          font-weight: 600;
+          color: $color-text;
+          padding: 10px 20px;
+          &:hover {
+            color: $color-button;
+            font-weight: 800;
+            transition: all 0.3s;
+          }
         }
       }
     }
   }
-  .authButton {
-    margin: 0;
-    position: relative;
-    font-size: 20px;
-    font-weight: 600;
-    color: $color-text;
-    padding: 10px 5px;
-    border: none;
-    &:hover {
-      color: $color-button;
-      border-bottom: none;
-      font-weight: 800;
-      transition: all 0.3s;
-    }
-  }
-  .separe {
-    font-weight: 900;
-    font-size:20px;
-  }
-  .last-games-container {
-    display: flex;
-    width: 70%;
-    margin: 0 auto;
-  }
-}
-.logoutButton {
-  background-color: $color-button;
 }
 h1 {
   font-size: 20px;
   padding: 10px;
   text-align: center;
-  color: black;
-  background: #20e0bd;
+  color:black;
+  background: #20E0BD;
+}
+.home-main-carousel {
+  width:50%;
+  margin: 0 auto;
+}
+
+.form-searchgame {
+  display:flex;
+  width:100%;
+  margin:0 auto;
+  .search-game {
+    text-align:center;
+    height:40px;
+ 
+    margin:0 auto;
+    font-size:20px;
+    background-color: rgb(61, 61, 82);
+    border:none;
+    border-radius: 5px;
+  }
 }

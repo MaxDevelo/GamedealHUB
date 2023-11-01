@@ -19,8 +19,8 @@ export const getUser = async ({ request }) => {
 
 export default function Signin() {
   return (
-    <div className="homePage">
-      <Header type="home" />
+    <div className="signinPage">
+      <Header type="" />
       <div className="authform">
         <h2>Signin</h2>
         <Form method="POST" action="/signin">

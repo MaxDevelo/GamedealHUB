@@ -1,13 +1,28 @@
 @import "@/assets/styles/_color";
 @import "@/assets/styles/_fonts";
-
+.signinPage {
+  display: flex;
+  flex-direction: column;
+  background-image: url('../../assets/img/bg.jpg');
+  background-size: cover;
+  height: 100vh;
+}
 .authform {
-    h2 {
-        text-align:center;
-        font-size:50px;
-    }
+  padding:100px;
+  background-color: #1b2838ee;
+  width: 60%;
+  margin: 60px auto;
+  border-radius: 10px;
+  h2 {
+    text-align: center;
+    font-size: 50px;
+  }
+  fieldset {
+    border: none;
+  }
   height: auto;
   form {
+    padding: 10px;
     display: flex;
     flex-direction: column;
     width: 60%;
@@ -17,12 +32,11 @@
       flex-direction: column;
       width: 100%;
       margin: 0 auto;
-      
+
       input {
         width: auto;
         height: 40px;
       }
     }
-
   }
 }
