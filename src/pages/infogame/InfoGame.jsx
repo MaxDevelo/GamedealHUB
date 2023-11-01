@@ -3,7 +3,7 @@ import React from 'react'
 import Header from '@/components/Header/Header'
 import GameInfo from '@/components/GameInfo/GameInfo'
 
-function Category() {
+function InfoGame() {
   return (
     <>
       <Header type="" />
@@ -12,4 +12,4 @@ function Category() {
   )
 }
 
-export default Category;
+export default InfoGame;

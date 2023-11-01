@@ -12,8 +12,6 @@ import ReactPlayer from "react-player";
 import useAuth from "@/auth";
 import { wishlist, get_wishlist_by_id } from "@/services/api/users";
 
-
-
 export const addWishlist = async ({ request }) => {
   const user = useAuth.getState().user;
   if (user !== null) {
@@ -32,21 +30,17 @@ export const addWishlist = async ({ request }) => {
 };
 
 const verifyIfTheGameIsInWishlist = async (game_id) => {
-  const user = useAuth.getState().user;
-  if (user !== null) {
-    return await get_wishlist_by_id(user[0].id, game_id)
-      .then((res) => {
-        if(res.data.length > 0) {
-          return 1;
-        }
-        else {
-          return 0;
-        }
-      })
-      .catch((error) => {
+  return await get_wishlist_by_id(user[0].id, game_id)
+    .then((res) => {
+      if (res.data.length > 0) {
+        return 1;
+      } else {
         return 0;
-      });
-  }
+      }
+    })
+    .catch((error) => {
+      return 0;
+    });
 
   //return redirect('/signin');
   return 0;
@@ -60,17 +54,19 @@ export default function GameInfo() {
   const minPrice = game_info[0].data.reduce((game1, game2) =>
     game1.price < game2.price ? game1 : game2
   );
-  const [ getVerifyWishlist, setGetVerifyWishlist] = useState(0);
+  const [getVerifyWishlist, setGetVerifyWishlist] = useState(0);
   // Sort price
   let sortGames = game_info[0].data.sort((a, b) => a.price - b.price);
   useEffect(() => {
-    console.log(getVerifyWishlist)
+    console.log(getVerifyWishlist);
   }, [getVerifyWishlist, setGetVerifyWishlist]);
   // Verify if the game is in the wishlist of user
-  verifyIfTheGameIsInWishlist(firstGame.id)
-  .then((res) => {
-    setGetVerifyWishlist(res)
-  });
+  const user = useAuth.getState().user;
+  if (user !== null) {
+    verifyIfTheGameIsInWishlist(firstGame.id).then((res) => {
+      setGetVerifyWishlist(res);
+    });
+  }
   if (firstGame) {
     document.title = "Buy cheap " + firstGame.name + " | GameDealHub";
     return (
