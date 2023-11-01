@@ -6,69 +6,19 @@ import {
   urlGetMostPopularGames,
 } from "./config.js";
 
-export const get_free_games = (limit) => {
+export const get_category_games = (limit) => {
   return Promise.all([
-    fetch(urlGetFreeGames(limit ?? 20)),
-    fetch(urlGetUnderPriceGames(5)),
-  ])
-    .then(async ([a, b]) => {
-      const data = await a.json();
-      const under_price_games = await b.json();
-      return [data, { data: under_price_games }, { type: "Free" }];
-    })
-    .then((data) => {
-      return data;
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-};
-
-export const get_most_recents_games = (limit) => {
-  return Promise.all([
+    fetch(urlGetTopDealsGames(limit ?? 20)),
     fetch(urlGetMostRecentsGames(limit ?? 20)),
-    fetch(urlGetUnderPriceGames(5)),
-  ])
-    .then(async ([a, b]) => {
-      const data = await a.json();
-      const under_price_games = await b.json();
-      return [data, { data: under_price_games }, { type: "News" }];
-    })
-    .then((data) => {
-      return data;
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-};
-
-export const get_top_deals = (limit) => {
-  return Promise.all([
-    fetch(urlGetTopDealsGames(limit)),
-    fetch(urlGetUnderPriceGames(5)),
-  ])
-    .then(async ([a, b]) => {
-      const data = await a.json();
-      const under_price_games = await b.json();
-      return [data, { data: under_price_games }, { type: "Top Deals" }];
-    })
-    .then((data) => {
-      return data;
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-};
-
-export const get_most_popular_games = (limit) => {
-  return Promise.all([
+    fetch(urlGetFreeGames(limit ?? 20)),
     fetch(urlGetMostPopularGames(limit ?? 20)),
-    fetch(urlGetUnderPriceGames(5)),
   ])
-    .then(async ([a, b]) => {
-      const data = await a.json();
-      const under_price_games = await b.json();
-      return [data, { data: under_price_games }, { type: "Popular" }];
+    .then(async ([topdeals, newsgame, freegame, populargame]) => {
+      const data = await topdeals.json();
+      const data2 = await newsgame.json();
+      const data3 = await freegame.json();
+      const data4 = await populargame.json();
+      return [data, data2, data3, data4, { type: "Popular" }];
     })
     .then((data) => {
       return data;

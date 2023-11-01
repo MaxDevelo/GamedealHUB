@@ -1,7 +1,12 @@
+@import "@/assets/styles/_color";
+@import "@/assets/styles/_fonts";
 .homePage {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    background-image: url('../../assets/img/bg.jpg');
+    background-size: cover;
+    background-attachment: fixed;
 }
 @media only screen and (max-width: 810px) { 
     header {

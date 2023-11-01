@@ -68,15 +68,6 @@ const Catalog = () => {
 
   return (
     <div className="catalog-games">
-      <Form className="form-searchgame">
-        <input
-          className="search-game"
-          type="text"
-          name="search"
-          id="search"
-          placeholder="Search by the title ..."
-        />
-      </Form>
       {navigation.state === "loading" ? (
         <Loader />
       ) : (
