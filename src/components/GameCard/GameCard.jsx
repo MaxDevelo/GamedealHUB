@@ -6,9 +6,9 @@ import getPlateformLogo from "../../utils/getPlateformLogo";
 
 const GameCard = ({ game, type }) => {
   return (
-    <Link class="game-card" to={`/game/${game.id}`} key={game.id}>
-      <div class="badge">Popular</div>
-      <div class="game-tumb">
+    <Link className="game-card" to={`/game/${game.id}`} key={game.id}>
+      <div className="badge">Popular</div>
+      <div className="game-tumb">
         <img src={game.coverH ? game.coverH : ""} alt="" width="600" />
       </div>
       <div className="game-details">

@@ -53,7 +53,7 @@ const Header = ({ type }) => {
               games[2] &&
               games[3].data
                 .slice(0, 8)
-                .map((game) => <GameCard game={game} type={games[2].type} />)}
+                .map((game) => <GameCard game={game} type={games[2].type} key={game.id} />)}
           </Carousel>
         </div>
       )}

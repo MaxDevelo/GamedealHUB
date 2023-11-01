@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import useAuth, { signout } from '@/auth';
 import { useNavigate } from "react-router-dom";
-
+import AccountLogo from '../../assets/img/plateforms-logo/account.png'
 const AuthStatus = () => {
   const user = useAuth((state) => state.user);
   const navigate = useNavigate();
@@ -20,6 +20,7 @@ const AuthStatus = () => {
   } else {
     return (
       <div>
+      <a className="authAccount"  href="/account">Account</a>
         <button className="logoutButton" onClick={clickLogout}>Sign out</button>
       </div>
     );
