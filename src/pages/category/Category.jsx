@@ -5,6 +5,7 @@ import { Outlet, NavLink } from "react-router-dom";
 import "./category.scss";
 
 const Category = () => {
+  document.title = "Deals | GameDealHub"
   return (
     <div className="categoryPage">
       <Header type="" />

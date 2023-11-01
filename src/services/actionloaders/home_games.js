@@ -1,7 +1,7 @@
 import {
   get_category_games
 } from "../api/games_home";
-import { redirect, useParams } from "react-router-dom";
+import { redirect } from "react-router-dom";
 const LIMIT = 20;
 
 export const homeGamesFilterActionLoader = async ({ request }) => {

@@ -39,7 +39,7 @@ const Gallery = () => {
                       : game.nameGame}
                   </h3>
                 </div>
-                <p className="price">
+                <p className={(game.price == 0) ? "price-free" : "price"}>
                   {(game.price != null) ?  (game.price == 0 ? "Free" : "€ " + game.price) : "????"}
                 </p>
               </Link>
@@ -64,7 +64,7 @@ const Gallery = () => {
                       : game.nameGame}
                   </h3>
                 </div>
-                <p className="price">
+                <p className={(game.price == 0) ? "price-free" : "price"}>
                   {(game.price != null) ?  (game.price == 0 ? "Free" : "€ " + game.price) : "????"}
                 </p>
               </Link>
@@ -90,7 +90,7 @@ const Gallery = () => {
                       : game.nameGame}
                   </h3>
                 </div>
-                <p className="price">
+                <p className={(game.price == 0) ? "price-free" : "price"}>
                   {(game.price != null) ?  (game.price == 0 ? "Free" : "€ " + game.price) : "????"}
                 </p>
               </Link>
@@ -122,7 +122,7 @@ const Gallery = () => {
                         : game.nameGame}
                     </h3>
                   </div>
-                  <p className="price">
+                  <p className={(game.price == 0) ? "price-free" : "price"}>
                     {(game.price != null) ?  (game.price == 0 ? "Free" : "€ " + game.price) : "????"}
                   </p>
                 </Link>

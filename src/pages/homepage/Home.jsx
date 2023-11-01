@@ -6,7 +6,7 @@ import Gallery from '@/components/Gallery/Gallery'
 import './home.scss'
 
 function Home() {
-
+  document.title = "Home | GameDealHub"
   return (
     <div className="homePage">
       <Header type="home" />

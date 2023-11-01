@@ -23,6 +23,7 @@ const GameInfo = () => {
   );
   let sortGames = game_info[0].data.sort((a, b) => a.price - b.price);
   if (firstGame) {
+    document.title = "Buy cheap " + firstGame.name + " | GameDealHub"
     return (
       <div className="game-container">
       <div className="first-box">

@@ -154,11 +154,6 @@ h3 {
       border-bottom-left-radius: 5px;
     
     }
-    .price {
- 
-      font-size: 30px;
-      font-weight: 800;
-    }
     &:hover {
       border: 2px solid white;
       img {
@@ -175,4 +170,16 @@ h3 {
     text-align: center;
     font-size: 40px;
   }
+}
+.price {
+ 
+  font-size: 30px;
+  font-weight: 800;
+}
+.price-free {
+
+  color: #07DA74 !important;
+  font-size: 20px;
+  font-weight: 800;
+  margin-right: 10px;
 }
