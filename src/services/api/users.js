@@ -1,4 +1,4 @@
-import { urlSignup, urlSignin, urlWishlist, urlGetWishlistById } from "./config.js";
+import { urlSignup, urlSignin, urlWishlist, urlGetWishlistById, urlGetWishlistByUserId, urlDeleteGameWishlistByUserId } from "./config.js";
 import useAuth from "@/auth";
 
 export const signup = (
@@ -108,6 +108,36 @@ export const get_wishlist_by_id = (user_id, game_id) => {
     method: "POST",
     headers: headers,
     body: body,
+  })
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      }
+    })
+    .then((data) => {
+      return data;
+    })
+    .catch((err) => {
+      return err;
+    });
+};
+export const get_wishlist_by_user_id = (user_id) => {
+  return fetch(urlGetWishlistByUserId(user_id))
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      }
+    })
+    .then((data) => {
+      return data;
+    })
+    .catch((err) => {
+      return err;
+    });
+};
+export const delete_game_wishlist_by_user_id = (user_id, game_id) => {
+  return fetch(urlDeleteGameWishlistByUserId(user_id, game_id), {
+    method: "DELETE",
   })
     .then((response) => {
       if (response.ok) {

@@ -63,3 +63,9 @@ export const urlWishlist = () => {
 export const urlGetWishlistById = () => {
     return $url_host + "api/users/getwishlist";
 }
+export const urlGetWishlistByUserId = (user_id) => {
+    return $url_host + "api/user/" + user_id + "/wishlist";
+}
+export const urlDeleteGameWishlistByUserId = (user_id, game_id) => {
+    return $url_host + "api/user/" + user_id + "/wishlist/" + game_id;
+}

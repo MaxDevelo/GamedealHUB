@@ -8,6 +8,7 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: flex-start;
+  min-height: 100vh;
   .container-categories {
     .categories {
       display: flex;
@@ -39,6 +40,7 @@
   flex-direction: column;
   flex-wrap: wrap;
   background-image: url('../../assets/img/bg.jpg');
+  min-height: 100vh;
   
 }
 @media only screen and (max-width: 810px) { 

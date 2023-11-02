@@ -32,6 +32,7 @@ const GameItem = ({ game }) => {
           </h3>
           <div className="logoPlateform">
             <img src={PC} />
+            <h4>{game.date.split("T")[0]}</h4>
           </div>
         </div>
       </div>
@@ -81,7 +82,7 @@ const Gallery = () => {
             </Box>
             <div className={valueTab == 1 ? "topDeals" : "topDeals hide"}>
               <h3>Top Deals</h3>
-              {games[0].data.map((game) => (
+              {games && games[0].data.map((game) => (
                 <GameItem game={game} />
               ))}
               <Link to={"/category/top-deals"} className="btn-see-all-games">
@@ -90,7 +91,7 @@ const Gallery = () => {
             </div>
             <div className={valueTab == 2 ? "mostrecents" : "mostrecents hide"}>
               <h3>News</h3>
-              {games[1].data.map((game) => (
+              {games && games[1].data.map((game) => (
                 <GameItem game={game} />
               ))}
               <Link to={"/category/News"} className="btn-see-all-games">
@@ -114,7 +115,7 @@ const Gallery = () => {
       <div className="containerPopularGames">
         <h2>Most Popular</h2>
         <Carousel breakPoints={breakPoints} className="mostPopular">
-          {games[3].data.slice(0, 8).map((game) => (
+          {games && games[3].data.slice(0, 8).map((game) => (
             <Link className="game-item" to={`/game/${game.id}`} key={game.id}>
               <img
                 src={game.thumbnail ? game.thumbnail : game.coverH}

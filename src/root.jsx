@@ -12,6 +12,7 @@ function Root() {
   return (
     <>
       <Outlet />
+      <Footer />
     </>
   )
 }

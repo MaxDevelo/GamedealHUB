@@ -10,5 +10,5 @@ export const homeGamesFilterActionLoader = async ({ request }) => {
   if (search) {
     return redirect("/category/most-popular?" + url.searchParams)
   }
-  return await get_category_games(LIMIT);
+  return await get_category_games(LIMIT) ?? null;
 };

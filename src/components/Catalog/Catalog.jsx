@@ -114,32 +114,37 @@ const Catalog = () => {
           <div className="catalog-info">
             {currentGames && currentGames.length > 0 ? (
               currentGames.map((game) => (
-                <Link className="game-item" to={`/game/${game.id}`} key={game.id}>
-      <div className="detail-product">
-        <img
-          src={game.thumbnail ? game.thumbnail : game.coverH}
-          alt="gallery grid"
-          className="image_cover"
-        />
-        <div className="game-info">
-          <h3>
-            {game.nameGame.length > 20
-              ? game.nameGame.substring(0, 20).concat("...")
-              : game.nameGame}
-          </h3>
-          <div className="logoPlateform">
-            <img src={PC} />
-          </div>
-        </div>
-      </div>
-      <p className={game.price == 0 ? "price-free" : "price"}>
-        {game.price != null
-          ? game.price == 0
-            ? "Free"
-            : "€ " + game.price
-          : "????"}
-      </p>
-    </Link>
+                <Link
+                  className="game-item"
+                  to={`/game/${game.id}`}
+                  key={game.id}
+                >
+                  <div className="detail-product">
+                    <img
+                      src={game.thumbnail ? game.thumbnail : game.coverH}
+                      alt="gallery grid"
+                      className="image_cover"
+                    />
+                    <div className="game-info">
+                      <h3>
+                        {game.nameGame.length > 20
+                          ? game.nameGame.substring(0, 20).concat("...")
+                          : game.nameGame}
+                      </h3>
+                      <div className="logoPlateform">
+                        <img src={PC} />
+                        <h4>{game.date.split("T")[0]}</h4>
+                      </div>
+                    </div>
+                  </div>
+                  <p className={game.price == 0 ? "price-free" : "price"}>
+                    {game.price != null
+                      ? game.price == 0
+                        ? "Free"
+                        : "€ " + game.price
+                      : "????"}
+                  </p>
+                </Link>
               ))
             ) : (
               <h2 className="nogamefound">No games found</h2>

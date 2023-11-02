@@ -11,7 +11,6 @@ const Category = () => {
       <Header type="catalogs" />
       <div className="categories-games-container">
         <Outlet />
-
         <div className="container-categories">
           <h2>CATEGORIES</h2>
           <div className="categories">

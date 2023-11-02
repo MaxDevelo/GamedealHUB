@@ -20,7 +20,8 @@ const AuthStatus = () => {
   } else {
     return (
       <div>
-      <a className="authAccount"  href="/account">Account</a>
+        <a className="authAccount"  href="/wishlist">Wishlist</a>
+        <a className="authAccount"  href="/account">Account</a>
         <button className="logoutButton" onClick={clickLogout}>Sign out</button>
       </div>
     );

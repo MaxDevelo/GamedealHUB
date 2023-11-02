@@ -8,12 +8,19 @@ import "./signin.scss";
 export const getUser = async ({ request }) => {
   let formData = await request.formData();
   let data = Object.fromEntries(formData);
-  return await signinUser({email: data['email'], password: data['password']})
+
+  const url = new URL(request.url);
+  const search = url.searchParams.get("search");
+  if (search) {
+    return redirect("/category/most-popular?" + url.searchParams);
+  }
+
+  return await signinUser({ email: data["email"], password: data["password"] })
     .then(() => {
-      return redirect('/')
+      return redirect("/");
     })
     .catch((error) => {
-      return redirect('/signin')
+      return redirect("/signin");
     });
 };
 
@@ -30,7 +37,6 @@ export default function Signin() {
 
             <label>Password</label>
             <input type="password" name="password" required />
-
           </fieldset>
 
           <button>Signin</button>

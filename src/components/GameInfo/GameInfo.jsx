@@ -10,26 +10,43 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 import { Carousel } from "react-responsive-carousel";
 import ReactPlayer from "react-player";
 import useAuth from "@/auth";
-import { wishlist, get_wishlist_by_id } from "@/services/api/users";
+import {
+  wishlist,
+  get_wishlist_by_id,
+  delete_game_wishlist_by_user_id,
+} from "@/services/api/users";
 
-export const addWishlist = async ({ request }) => {
+export const addOrDeleteWishlist = async ({ request }) => {
   const user = useAuth.getState().user;
   if (user !== null) {
     let formData = await request.formData();
     let data = Object.fromEntries(formData);
-    return await wishlist(user[0].id, data["game_id"])
-      .then(() => {
-        return null;
-      })
-      .catch((error) => {
-        return null;
-      });
+    if (request.method === "DELETE") {
+      return await delete_game_wishlist_by_user_id(
+        data["user_id"],
+        data["game_id"]
+      )
+        .then(() => {
+          return redirect("/game/" + data["game_id"]);
+        })
+        .catch((error) => {
+          return redirect("/game/" + data["game_id"]);
+        });
+    } else {
+      return await wishlist(user[0].id, data["game_id"])
+        .then(() => {
+          return null;
+        })
+        .catch((error) => {
+          return null;
+        });
+    }
   }
-  //return redirect('/signin');
-  return null;
+  return redirect("/signin");
 };
 
 const verifyIfTheGameIsInWishlist = async (game_id) => {
+  const user = useAuth.getState().user;
   return await get_wishlist_by_id(user[0].id, game_id)
     .then((res) => {
       if (res.data.length > 0) {
@@ -47,6 +64,7 @@ const verifyIfTheGameIsInWishlist = async (game_id) => {
 };
 
 export default function GameInfo() {
+  // Scroll in the top
   window.scrollTo(0, 0);
   let game_info = useLoaderData();
   let firstGame = game_info[0].data[0];
@@ -54,6 +72,7 @@ export default function GameInfo() {
   const minPrice = game_info[0].data.reduce((game1, game2) =>
     game1.price < game2.price ? game1 : game2
   );
+  // Init to verify if the game is in the wishlist of user
   const [getVerifyWishlist, setGetVerifyWishlist] = useState(0);
   // Sort price
   let sortGames = game_info[0].data.sort((a, b) => a.price - b.price);
@@ -69,8 +88,14 @@ export default function GameInfo() {
   }
   if (firstGame) {
     document.title = "Buy cheap " + firstGame.name + " | GameDealHub";
+    let styles = {
+      background:
+        "linear-gradient(to bottom, #272635dc, #272635), url('" +
+        (firstGame.background ? firstGame.background : firstGame.coverV) +
+        "')",
+    };
     return (
-      <div className="game-container">
+      <div className="game-container" style={styles}>
         <div className="first-box">
           <div className="game-info">
             <img
@@ -101,12 +126,18 @@ export default function GameInfo() {
               </p>
             </div>
             {getVerifyWishlist == 1 ? (
-              <Form method="POST" action={`/game/${firstGame.id}`}>
+              <Form method="DELETE" action={`/game/${firstGame.id}`}>
                 <input
                   type="hidden"
                   value={firstGame.id}
                   name="game_id"
                   id="name_id"
+                />
+                <input
+                  type="hidden"
+                  value={user[0].id}
+                  name="user_id"
+                  id="user_id"
                 />
                 <button className="wishlist-button">Remove wishlist</button>
               </Form>

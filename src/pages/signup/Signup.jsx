@@ -8,7 +8,7 @@ import "./signup.scss";
 export const createUser = async ({ request }) => {
   let formData = await request.formData();
   let data = Object.fromEntries(formData);
- 
+  
   return await signupUser({lastname: data['lastname'], firstname: data['firstname'], name: data['name'], email: data['email'], password: data['password'], isSubscribe: 0})
     .then(() => {
       return redirect('/')

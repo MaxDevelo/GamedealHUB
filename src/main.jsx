@@ -11,14 +11,19 @@ import "@/index.scss";
 import Root from "@/root.jsx";
 import Home from "@/pages/homepage/Home";
 import Category from "@/pages/category/Category";
-import { addWishlist } from '@/components/GameInfo/GameInfo'
+import { addOrDeleteWishlist } from '@/components/GameInfo/GameInfo'
 import Catalog from "@/components/Catalog/Catalog";
 import InfoGame  from "@/pages/infogame/InfoGame";
 import Signup, { createUser } from "@/pages/signup/Signup";
 import Signin, { getUser } from "@/pages/signin/Signin";
+import Account from "@/pages/Account/Account";
+import Wishlist, {deleteGameWishlist} from "@/pages/Wishlist/Wishlist";
 import { homeGamesFilterActionLoader } from "@/services/actionloaders/home_games";
 import { categoryGamesActionLoader } from "@/services/actionloaders/category_games";
 import { gameInfoActionLoader } from "@/services/actionloaders/game_info";
+import { searchGameActionLoader} from "@/services/actionloaders/search_game";
+import { wishlistGamesActionLoader } from "@/services/actionloaders/wishlist_games";
+
 const router = createBrowserRouter(
   [
     {
@@ -33,12 +38,24 @@ const router = createBrowserRouter(
         {
           path: 'signup',
           element: <Signup />,
-          action: createUser
+          action: createUser,
+          loader: searchGameActionLoader
         },
         {
           path: 'signin',
           element: <Signin />,
           action: getUser,
+          loader: searchGameActionLoader
+        },
+        {
+          path: 'wishlist',
+          element: <Wishlist />,
+          loader: wishlistGamesActionLoader,
+          action: deleteGameWishlist
+        },
+        {
+          path: 'account',
+          element: <Account />
         },
         {
           path: "category",
@@ -72,7 +89,7 @@ const router = createBrowserRouter(
               path: ":game",
               element: <InfoGame />,
               loader: gameInfoActionLoader,
-              action: addWishlist
+              action: addOrDeleteWishlist
             },
           ]
         }
