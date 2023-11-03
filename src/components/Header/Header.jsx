@@ -1,6 +1,7 @@
 import React from "react";
 import { Form, Link, useLoaderData } from "react-router-dom";
 import logo from "@/assets/img/logo.png";
+import snowGif from "@/assets/img/gif/snow.gif";
 import AuthStatus from '../AuthStatus/AuthStatus'
 import "./header.scss";
 import GameCard from "../GameCard/GameCard";
@@ -24,6 +25,7 @@ const Header = ({ type }) => {
                 className="logo"
                 width="200px"
               />
+              <img src={snowGif} className="snow-gif" width="100px" />
             </Link>
           </div>
           <div className="searchGame">

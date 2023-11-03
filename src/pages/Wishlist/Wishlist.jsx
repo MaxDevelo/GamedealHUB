@@ -32,7 +32,7 @@ export default function Wishlist() {
       <div className="wishlist">
         <h2>Wishlist</h2>
         <div className="catalog-info">
-          {gamesWishlist ? (
+          {(gamesWishlist && gamesWishlist.data.length > 0) ? (
             gamesWishlist.data.map((game) => (
               <div className="list-game">
                 <Link

@@ -2,7 +2,7 @@
 @import "@/assets/styles/_fonts";
 
 .wishlistPage {
-  background-image: url("../../assets/img/bg.jpg");
+  background-image: url("../../assets/img/bg_noel.jpg");
   background-size: cover;
   background-attachment: fixed;
   height: 100vh;
@@ -81,4 +81,10 @@
     background: transparent;
     color: red;
   }
+}
+
+.nogamefound {
+  width:60%;
+  margin: 0 auto;
+  padding:30px;
 }

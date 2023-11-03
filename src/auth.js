@@ -17,7 +17,7 @@ export const signinUser = async (data) => {
     useAuth.setState({ user: res.data, token: res.token });
 };
 export const signupUser = async (data) => {
-  const user = await signup(
+  await signup(
     data.lastname,
     data.firstname,
     data.name,
@@ -25,7 +25,6 @@ export const signupUser = async (data) => {
     data.password,
     data.isSubscribe
   );
-  useAuth.setState({ user: user.data, token: user.token });
 };
 
 export default useAuth;

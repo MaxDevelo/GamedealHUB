@@ -2,12 +2,11 @@
 @import "../../assets/styles/_fonts";
 
 .game-card {
-
   position: relative;
   margin-top: 50px;
   background: $color-game-card;
   border-radius: 5px;
-  width:auto;
+  width: auto;
   height: auto;
   .badge {
     position: absolute;
@@ -16,18 +15,18 @@
     font-size: $font-size-base;
     font-weight: 900;
     background: $color-badge;
-    color: #BEEE11;
+    color: #beee11;
     padding: 10px 20px;
   }
   .game-tumb {
     display: flex;
     align-items: center;
     justify-content: center;
-    width:100%;
+    width: 100%;
   }
   .game-details {
     padding: 30px;
-    h4 a {
+    h4 {
       font-weight: 500;
       display: block;
       margin-bottom: 18px;
@@ -35,6 +34,8 @@
       color: $color-text;
       text-decoration: none;
       transition: 0.3s;
+      color: white;
+      font-size: 30px;
     }
     p {
       font-size: 15px;
@@ -75,7 +76,7 @@
       margin-right: 5px;
     }
   }
-  
+
   .game-links {
     text-align: right;
     a {
@@ -87,6 +88,6 @@
     }
   }
   &:hover {
-    border: white 2px solid;;
+    border: white 2px solid;
   }
 }

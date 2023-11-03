@@ -28,19 +28,22 @@ export default function Signin() {
   return (
     <div className="signinPage">
       <Header type="" />
-      <div className="authform">
-        <h2>Signin</h2>
-        <Form method="POST" action="/signin">
-          <fieldset>
-            <label>Email</label>
-            <input type="text" name="email" required />
+      <div className="container">
+        <div className="authform">
+          <h2>Log in</h2>
+          <Form method="POST" action="/signin">
+            <fieldset>
+              <label>Email</label>
+              <input type="email" name="email" required />
 
-            <label>Password</label>
-            <input type="password" name="password" required />
-          </fieldset>
+              <label>Password</label>
+              <input type="password" name="password" required />
+            </fieldset>
 
-          <button>Signin</button>
-        </Form>
+            <button>Signin</button>
+          </Form>
+        </div>
+        <div className="rigth-image"></div>
       </div>
     </div>
   );

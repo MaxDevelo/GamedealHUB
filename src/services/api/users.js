@@ -37,6 +37,7 @@ export const signup = (
       }
     })
     .then((data) => {
+      console.log(data)
       return { data, token };
     })
     .catch((err) => {

@@ -3,16 +3,13 @@
 .signinPage {
   display: flex;
   flex-direction: column;
-  background-image: url('../../assets/img/bg.jpg');
-  background-size: cover;
-  height: 100vh;
+
+
 }
 .authform {
-  padding:100px;
-  background-color: #1b2838ee;
-  width: 60%;
-  margin: 60px auto;
-  border-radius: 10px;
+  padding: 100px;
+  background-color: #1b2838;
+  width: 40%;
   h2 {
     text-align: center;
     font-size: 50px;
@@ -25,18 +22,27 @@
     padding: 10px;
     display: flex;
     flex-direction: column;
-    width: 60%;
+    width: 100%;
     margin: 0 auto;
     fieldset {
       display: flex;
       flex-direction: column;
       width: 100%;
-      margin: 0 auto;
+      margin: 100p auto;
 
       input {
         width: auto;
         height: 40px;
       }
     }
+  }
+}
+.container {
+  display: flex;
+  .rigth-image {
+    width: 60%;
+    height: 100vh;
+    background-image: linear-gradient(to left, #1b283879, #1b2838), url("../../assets/img/bgauth.jpg");
+    background-size: cover;
   }
 }

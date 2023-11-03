@@ -18,7 +18,7 @@ import Signup, { createUser } from "@/pages/signup/Signup";
 import Signin, { getUser } from "@/pages/signin/Signin";
 import Account from "@/pages/Account/Account";
 import Wishlist, {deleteGameWishlist} from "@/pages/Wishlist/Wishlist";
-import { homeGamesFilterActionLoader } from "@/services/actionloaders/home_games";
+import { homeGamesFilterActionLoader, accountPageVerification } from "@/services/actionloaders/home_games";
 import { categoryGamesActionLoader } from "@/services/actionloaders/category_games";
 import { gameInfoActionLoader } from "@/services/actionloaders/game_info";
 import { searchGameActionLoader} from "@/services/actionloaders/search_game";
@@ -55,7 +55,8 @@ const router = createBrowserRouter(
         },
         {
           path: 'account',
-          element: <Account />
+          element: <Account />,
+          loader: accountPageVerification
         },
         {
           path: "category",

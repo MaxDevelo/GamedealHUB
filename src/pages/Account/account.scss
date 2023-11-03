@@ -1,2 +1,21 @@
 @import "../../assets/styles/_color";
 @import "../../assets/styles/_fonts";
+
+.accountPage {
+    height:100vh;
+    width:100%;
+}
+.account-container {
+    display:flex;
+    flex-direction: column;
+    text-align: center;
+    h2 {
+        font-size:30px;
+    }
+}
+.logo-account {
+    margin: 0 auto;
+    margin-top:10px;
+    width:200px;
+    border-radius: 50%;
+}
