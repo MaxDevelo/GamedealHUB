@@ -67,6 +67,7 @@ export default function GameInfo() {
   // Scroll in the top
   window.scrollTo(0, 0);
   let game_info = useLoaderData();
+  console.log(game_info)
   let firstGame = game_info[0].data[0];
   let media = game_info[1].data;
   const minPrice = game_info[0].data.reduce((game1, game2) =>
@@ -159,6 +160,7 @@ export default function GameInfo() {
           <div className="others">
             <p className="date">Release Date: {firstGame.date.split("T")[0]}</p>
             <p className="author">Publisher: {firstGame.publisherName}</p>
+            <p className="author">{(firstGame.developerName) ? "Developer: " + firstGame.developerName : ""}</p>
           </div>
           <Carousel
             thumbWidth="100px"
