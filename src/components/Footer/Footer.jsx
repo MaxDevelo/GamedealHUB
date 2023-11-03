@@ -6,8 +6,7 @@ const Footer = () => {
   return (
     <footer className="">
       <div className="footer-content">
-        <h3>Best Game Price</h3>
-        <p>Comparateur de Prix</p>
+        <h3>GameDealHub</h3>
         <ul class="footer-menu">
           <li>
             <Link to="/">Home</Link>
