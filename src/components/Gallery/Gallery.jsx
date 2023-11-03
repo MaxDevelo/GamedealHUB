@@ -94,7 +94,7 @@ const Gallery = () => {
               {games && games[1].data.map((game) => (
                 <GameItem game={game} />
               ))}
-              <Link to={"/category/News"} className="btn-see-all-games">
+              <Link to={"/category/most-recent"} className="btn-see-all-games">
                 Browse All News Games
               </Link>
             </div>
