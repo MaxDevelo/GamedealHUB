@@ -10,7 +10,7 @@ export const homeGamesFilterActionLoader = async ({ request }) => {
   const url = new URL(request.url);
   const search = url.searchParams.get("search");
   if (search) {
-    return redirect("/category/most-popular" + url.searchParams)
+    return redirect("/category/most-popular?" + url.searchParams)
   }
   return await get_category_games(LIMIT) ?? null;
 };

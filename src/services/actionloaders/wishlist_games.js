@@ -12,7 +12,7 @@ export const wishlistGamesActionLoader = async ({ request }) => {
   const url = new URL(request.url);
   const search = url.searchParams.get("search");
   if (search) {
-    return redirect("/category/most-popular" + url.searchParams);
+    return redirect("/category/most-popular?" + url.searchParams);
   }
   return await get_wishlist_by_user_id(user[0].id);
 };
