@@ -92,7 +92,7 @@ export default function GameInfo() {
     let styles = {
       background:
         "linear-gradient(to bottom, #272635dc, #272635), url('" +
-        (firstGame.background ? firstGame.background : firstGame.coverV) +
+        (firstGame.background ? firstGame.background : firstGame.coverH) +
         "')",
     };
     return (
