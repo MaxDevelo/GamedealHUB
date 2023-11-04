@@ -132,8 +132,9 @@ const Gallery = () => {
               <p className={game.price == 0 ? "price-free" : "price"}>
                 {game.price != null
                   ? game.price == 0
+            
                     ? "Free"
-                    : "€ " + game.price
+                    : "€ " + ((game.sellerName.includes('instant')) ? game.price * 100 : game.price)
                   : "????"}
               </p>
             </Link>
