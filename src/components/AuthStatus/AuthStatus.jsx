@@ -9,7 +9,7 @@ const AuthStatus = () => {
     await signout();
     navigate(0)
   }
-  if (user === null) {
+  if (user == null) {
     return (
       <div>
         <a className="authButton" href="/signin">Sign in</a>
