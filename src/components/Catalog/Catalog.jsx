@@ -140,16 +140,16 @@ const Catalog = () => {
                   {(game.minPrice && game.maxPrice) ? (
                     <p className={game.maxPrice == 0 ? "price-free" : "price"}>
                       <span className="max-price">
-                        {game.maxPrice != null ? "€" + game.maxPrice : "Free"}
+                        {game.maxPrice != null ? game.maxPrice  + "€" : "Free"}
                       </span>
-                      {game.minPrice != null ? "€" + game.minPrice : "Free"}
+                      {game.minPrice != null ? game.minPrice + "€" : "Free"}
                     </p>
                   ) : (
                     <p className={game.price == 0 ? "price-free" : "price"}>
                       {game.price != null
                         ? game.price == 0
                           ? "Free"
-                          : "€ " + game.price
+                          : game.price + "€"
                         : "????"}
                     </p>
                   )}

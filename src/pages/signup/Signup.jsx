@@ -40,7 +40,7 @@ export default function Signup() {
               <label>Firsname</label>
               <input type="text" name="firstname" required />
 
-              <label>Name</label>
+              <label>Username</label>
               <input type="text" name="name" required />
 
               <label>Email</label>

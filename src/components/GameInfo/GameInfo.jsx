@@ -226,8 +226,8 @@ export default function GameInfo() {
                       {" "}
                       {game_link.price == 0
                         ? "Free"
-                        : "€ " +
-                          (Math.floor((game_link.price / 100) * 100) / 100)}
+                        :
+                          (game_link.price / 100) + "€"}
                     </p>
                     <a href={game_link.url} target="_blank">
                       BUY NOW
