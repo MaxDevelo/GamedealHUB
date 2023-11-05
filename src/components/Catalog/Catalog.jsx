@@ -137,13 +137,22 @@ const Catalog = () => {
                       </div>
                     </div>
                   </div>
-                  <p className={game.price == 0 ? "price-free" : "price"}>
-                    {game.price != null
-                      ? game.price == 0
-                        ? "Free"
-                        : "€ " + ((game.sellerName.includes('instant')) ? game.price * 100 : game.price)
-                      : "????"}
-                  </p>
+                  {(game.minPrice && game.maxPrice) ? (
+                    <p className={game.maxPrice == 0 ? "price-free" : "price"}>
+                      <span className="max-price">
+                        {game.maxPrice != null ? "€" + game.maxPrice : "Free"}
+                      </span>
+                      {game.minPrice != null ? "€" + game.minPrice : "Free"}
+                    </p>
+                  ) : (
+                    <p className={game.price == 0 ? "price-free" : "price"}>
+                      {game.price != null
+                        ? game.price == 0
+                          ? "Free"
+                          : "€ " + game.price
+                        : "????"}
+                    </p>
+                  )}
                 </Link>
               ))
             ) : (

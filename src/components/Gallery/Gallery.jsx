@@ -36,6 +36,19 @@ const GameItem = ({ game }) => {
           </div>
         </div>
       </div>
+      {(game.minPrice && game.maxPrice)
+      ?
+      <p className={game.maxPrice == 0 ? "price-free" : "price"}>
+      <span className="max-price">
+      {game.maxPrice != null
+          ? "€" + game.maxPrice
+          : "Free"}
+      </span>
+        {game.minPrice != null
+          ? "€" + game.minPrice
+          : "Free"}
+      </p>
+      :
       <p className={game.price == 0 ? "price-free" : "price"}>
         {game.price != null
           ? game.price == 0
@@ -43,6 +56,7 @@ const GameItem = ({ game }) => {
             : "€ " + game.price
           : "????"}
       </p>
+      }
     </Link>
   );
 };
@@ -134,7 +148,7 @@ const Gallery = () => {
                   ? game.price == 0
             
                     ? "Free"
-                    : "€ " + ((game.sellerName.includes('instant')) ? game.price * 100 : game.price)
+                    : "€ " + (game.price)
                   : "????"}
               </p>
             </Link>

@@ -36,6 +36,7 @@ const Header = ({ type }) => {
                 name="search"
                 id="search"
                 placeholder="Search by the title ..."
+                required
               />
             </Form>
           </div>
