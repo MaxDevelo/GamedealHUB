@@ -8,5 +8,7 @@ export const gameInfoActionLoader = async  ({ request, params }) => {
   if (search) {
     return redirect("/category/most-popular?" + url.searchParams)
   }
-  return await get_game_by_id(params.game);
+  let data = await get_game_by_id(params.game);
+  console.log(data)
+  return (data[0].data.length > 0) ? data : redirect('/');
 };
