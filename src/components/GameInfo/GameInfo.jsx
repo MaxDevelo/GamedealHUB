@@ -67,16 +67,10 @@ export default function GameInfo() {
   // Scroll in the top
   window.scrollTo(0, 0);
   let game_info = useLoaderData();
-  console.log(game_info);
   let firstGame = game_info[0].data[0];
   let media = game_info[1].data;
   const minPrice = game_info[0].data.reduce((game1, game2) =>
-    (game1.sellerName.includes("Instant")
-      ? game1.price
-      : Math.floor((game1.price / 100) * 100) / 100) <
-    (game2.sellerName.includes("Instant")
-      ? game2.price
-      : Math.floor((game2.price / 100) * 100) / 100)
+    (game1.price < game2.price)
       ? game1
       : game2
   );
@@ -85,16 +79,10 @@ export default function GameInfo() {
   
   // Sort price
   let sortGames = game_info[0].data.sort(
-    (a, b) =>
-      (a.sellerName.includes("Instant")
-        ? a.price
-        : Math.floor((a.price / 100) * 100) / 100) -
-      (b.sellerName.includes("Instant")
-        ? b.price
-        : Math.floor((b.price / 100) * 100) / 100)
+    (a, b) => a.price - b.price
   );
   useEffect(() => {
-    console.log(getVerifyWishlist);
+    //console.log(getVerifyWishlist);
   }, [getVerifyWishlist, setGetVerifyWishlist]);
   // Verify if the game is in the wishlist of user
   const user = useAuth.getState().user;
@@ -126,7 +114,7 @@ export default function GameInfo() {
             <hr className="sperator-box" />
             <div className="metacritic-note">
               <img src={METACRITIC} alt="PC" className="metacritic-img" />
-              <p
+              <p style={{color: "white"}}
                 className={
                   firstGame.note == -1 || firstGame.note == null
                     ? ""
@@ -137,7 +125,7 @@ export default function GameInfo() {
                     : "low-note"
                 }
               >
-                {firstGame.note == -1 || firstGame.note == null
+                {firstGame.note == null || firstGame.note == -1
                   ? "N/A"
                   : firstGame.note}
               </p>
@@ -239,9 +227,7 @@ export default function GameInfo() {
                       {game_link.price == 0
                         ? "Free"
                         : "€ " +
-                          (game_link.sellerName.includes("Instant")
-                            ? game_link.price
-                            : Math.floor((game_link.price / 100) * 100) / 100)}
+                          (Math.floor((game_link.price / 100) * 100) / 100)}
                     </p>
                     <a href={game_link.url} target="_blank">
                       BUY NOW
