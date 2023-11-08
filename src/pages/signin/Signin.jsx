@@ -11,6 +11,7 @@ export const getUser = async ({ request }) => {
 
   const url = new URL(request.url);
   const search = url.searchParams.get("search");
+  // Redirect user when he searchs game in login page
   if (search) {
     return redirect("/category/most-popular?" + url.searchParams);
   }

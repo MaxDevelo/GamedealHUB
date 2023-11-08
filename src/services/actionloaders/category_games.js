@@ -12,7 +12,7 @@ import {
   get_most_popular_games_by_sort,
 } from "../api/games";
 
-const LIMIT = 30000;
+const LIMIT = 5000;
 
 export const categoryGamesActionLoader = async ({ request, params }) => {
   const url = new URL(request.url);
