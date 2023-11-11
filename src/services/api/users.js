@@ -1,4 +1,11 @@
-import { urlSignup, urlSignin, urlWishlist, urlGetWishlistById, urlGetWishlistByUserId, urlDeleteGameWishlistByUserId } from "./config.js";
+import {
+  urlSignup,
+  urlSignin,
+  urlWishlist,
+  urlGetWishlistById,
+  urlGetWishlistByUserId,
+  urlDeleteGameWishlistByUserId,
+} from "./config.js";
 import useAuth from "@/auth";
 
 export const signup = (
@@ -33,26 +40,24 @@ export const signup = (
       if (response.ok) {
         return response.json();
       } else {
-        throw new Error("Erreur lors de l'inscription");
+        return response.json().then((error) => {
+          throw new Error(error.message);
+        });
       }
     })
     .then((data) => {
-      console.log(data)
       return { data, token };
     })
-    .catch((err) => {
-      console.log(err);
-    });
 };
-
 export const signin = (email, password) => {
   const headers = {
     "Content-Type": "application/json",
   };
   const body = JSON.stringify({
     email,
-    password,
+    password
   });
+
   return fetch(urlSignin(), {
     method: "POST",
     headers: headers,
@@ -61,14 +66,12 @@ export const signin = (email, password) => {
     .then((response) => {
       if (response.ok) {
         return response.json();
+      } else {
+        return response.json().then((error) => {
+          throw new Error(error.message);
+        });
       }
     })
-    .then((data) => {
-      return data;
-    })
-    .catch((err) => {
-      return err;
-    });
 };
 export const wishlist = (user_id, game_id) => {
   const headers = {

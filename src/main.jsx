@@ -14,8 +14,8 @@ import Category from "@/pages/category/Category";
 import { addOrDeleteWishlist } from '@/components/GameInfo/GameInfo'
 import Catalog from "@/components/Catalog/Catalog";
 import InfoGame  from "@/pages/infogame/InfoGame";
-import Signup, { createUser } from "@/pages/signup/Signup";
-import Signin, { getUser } from "@/pages/signin/Signin";
+import Signup from "@/pages/signup/Signup";
+import Signin from "@/pages/signin/Signin";
 import Account from "@/pages/Account/Account";
 import Wishlist, {deleteGameWishlist} from "@/pages/Wishlist/Wishlist";
 import { homeGamesFilterActionLoader, accountPageVerification } from "@/services/actionloaders/home_games";
@@ -38,13 +38,10 @@ const router = createBrowserRouter(
         {
           path: 'signup',
           element: <Signup />,
-          action: createUser,
-          loader: searchGameActionLoader
         },
         {
           path: 'signin',
           element: <Signin />,
-          action: getUser,
           loader: searchGameActionLoader
         },
         {
