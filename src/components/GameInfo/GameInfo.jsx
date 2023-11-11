@@ -15,7 +15,9 @@ import {
   get_wishlist_by_id,
   delete_game_wishlist_by_user_id,
 } from "@/services/api/users";
-
+/**
+ * Gère l'ajout et la suppression du jeu dans la wishlist
+ */
 export const addOrDeleteWishlist = async ({ request }) => {
   const user = useAuth.getState().user;
   if (user !== null) {
@@ -44,7 +46,9 @@ export const addOrDeleteWishlist = async ({ request }) => {
   }
   return redirect("/signin");
 };
-
+/**
+ * Vérifier si le jeux dans dans la wishlist de l'utilisateur (connecté)
+ */
 const verifyIfTheGameIsInWishlist = async (game_id) => {
   const user = useAuth.getState().user;
   return await get_wishlist_by_id(user[0].id, game_id)
@@ -58,9 +62,6 @@ const verifyIfTheGameIsInWishlist = async (game_id) => {
     .catch((error) => {
       return 0;
     });
-
-  //return redirect('/signin');
-  return 0;
 };
 
 export default function GameInfo() {
@@ -69,22 +70,21 @@ export default function GameInfo() {
   let game_info = useLoaderData();
   let firstGame = game_info[0].data[0];
   let media = game_info[1].data;
+  // Chercher le prix le plus bas
   const minPrice = game_info[0].data.reduce((game1, game2) =>
     (game1.price < game2.price)
       ? game1
       : game2
   );
-  // Init to verify if the game is in the wishlist of user
   const [getVerifyWishlist, setGetVerifyWishlist] = useState(0);
   
-  // Sort price
+  // Trier les prix afin d'afficher les jeux (bas prix) en premier
   let sortGames = game_info[0].data.sort(
     (a, b) => a.price - b.price
   );
   useEffect(() => {
     //console.log(getVerifyWishlist);
   }, [getVerifyWishlist, setGetVerifyWishlist]);
-  // Verify if the game is in the wishlist of user
   const user = useAuth.getState().user;
   if (user !== null) {
     verifyIfTheGameIsInWishlist(firstGame.id).then((res) => {
@@ -93,6 +93,7 @@ export default function GameInfo() {
   }
   if (firstGame) {
     document.title = "Buy cheap " + firstGame.name + " | GameDealHub";
+    // Arrière plan avec l'image du jeu
     let styles = {
       background:
         "linear-gradient(to bottom, #272635dc, #272635), url('" +

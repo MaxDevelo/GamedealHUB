@@ -18,6 +18,7 @@ import Select from "@mui/material/Select";
 import Loader from "../Loading/Loader";
 
 const getTitleCategory = (type) => {
+  // Vérifier sur quelle catégorie on est actuellement
   switch (type) {
     case "Top Deals":
       return "Top Deals";
@@ -33,10 +34,15 @@ const getTitleCategory = (type) => {
 const Catalog = () => {
   let games = useLoaderData();
   let params = useParams();
+  // Affichage des jeux actuels dans la pagination
   const [currentGames, setCurrentGames] = useState(null);
+  // Nombre de pages
   const [pageCount, setPageCount] = useState(0);
+  // Les pages qui sont invisibles dans la pagination
   const [gamesOffset, setgamesOffset] = useState(0);
+  // Trier les jeux
   const [sort, setSort] = useState(0);
+  // Selection dans le selecteur, le genre de jeu (Sport, etc..)
   const [genre, setGenre] = useState(0);
   const navigate = useNavigate();
   let { search } = useLocation();
@@ -55,11 +61,13 @@ const Catalog = () => {
   };
 
   const navigation = useNavigation();
-
+  /**
+   * Cette partie gère la pagination
+   */
   useEffect(() => {
     const endOffset = gamesOffset + 20;
     setCurrentGames(games[0].data.slice(gamesOffset, endOffset));
-    setPageCount(Math.ceil(games[0].data.length / 20));
+    setPageCount(Math.ceil(games[0].data.length / 20)); // On compte combien il y a de page (20 jeux / page)
   }, [games[0].data, gamesOffset]);
   const handlePageClick = (event) => {
     const newOffset = (event.selected * 20) % games[0].data.length;

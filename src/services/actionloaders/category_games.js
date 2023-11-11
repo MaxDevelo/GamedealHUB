@@ -17,12 +17,13 @@ const LIMIT = 5000;
 export const categoryGamesActionLoader = async ({ request, params }) => {
   const url = new URL(request.url);
   const search = url.searchParams.get("search");
+  // Si l'utilisateur cherche un jeux dans la barre de recherche
   if (search) {
     return await get_game_by_name(search.toLowerCase());
   } else if (search && params.sort) {
     return await get_game_by_name_by_sort(search.toLowerCase(), params.sort);
   }
-  // Verify if a category (genres)
+  // vérifier si l'utilisateur choisi un genre de jeu qu'il veut afficher
   if (!isNaN(params.category)) {
     return await get_genre_games(params.category, params.sort);
   }

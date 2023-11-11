@@ -1,8 +1,11 @@
 import React from "react";
 import "./gamecard.scss";
 import {  Link } from "react-router-dom";
-import PC from "../../assets/img/plateforms-logo/PC.png";
-import getPlateformLogo from "../../utils/getPlateformLogo";
+
+/**
+ * 
+ * Affiche le jeux sur la page principale (carrousel des jeux les plus populaire)
+ */
 
 const GameCard = ({ game, type }) => {
   return (

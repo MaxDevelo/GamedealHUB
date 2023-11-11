@@ -8,13 +8,17 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 
+ // Taille des images pour le carrousel
 const breakPoints = [
   { width: 1, itemsToShow: 1 },
   { width: 550, itemsToShow: 2 },
   { width: 768, itemsToShow: 3 },
   { width: 1200, itemsToShow: 4 },
 ];
-
+/**
+ * Ce composant permet d'afficher un jeu
+ * 
+ */
 const GameItem = ({ game }) => {
   return (
     <Link className="game-item" to={`/game/${game.id}`} key={game.id}>
@@ -27,7 +31,7 @@ const GameItem = ({ game }) => {
         <div className="game-info">
           <h3>
             {game.nameGame.length > 20
-              ? game.nameGame.substring(0, 20).concat("...")
+              ? game.nameGame.substring(0, 20).concat("...") // On prend seulement les 30 premiers caractères du nom
               : game.nameGame}
           </h3>
           <div className="logoPlateform">
@@ -36,7 +40,7 @@ const GameItem = ({ game }) => {
           </div>
         </div>
       </div>
-      {(game.minPrice && game.maxPrice)
+      {(game.minPrice && game.maxPrice) // Je vérifie si il y a un prix max et un prix minimum (pour la catégorie Top Deals)
       ?
       <p className={game.maxPrice == 0 ? "price-free" : "price"}>
       <span className="max-price">
@@ -63,6 +67,7 @@ const GameItem = ({ game }) => {
 
 const Gallery = () => {
   let navigate = useNavigation();
+  // Gestion du menu d'onglets
   const [valueTab, setValueTab] = React.useState(1);
 
   const handleChangeTabs = (event, newValue) => {
@@ -80,6 +85,7 @@ const Gallery = () => {
           <Loader />
         ) : games ? (
           <div className="categoryGames">
+            // Menu d'onglets
             <Box
               sx={{ borderBottom: 1, borderColor: "divider" }}
               className="tabs"

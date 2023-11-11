@@ -4,6 +4,7 @@ import {
 import { redirect } from "react-router-dom";
 export const gameInfoActionLoader = async  ({ request, params }) => {
   const url = new URL(request.url);
+  // Si l'utilisateur cherche un jeux dans la barre de recherche
   const search = url.searchParams.get("search");
   if (search) {
     return redirect("/category/most-popular?" + url.searchParams)
