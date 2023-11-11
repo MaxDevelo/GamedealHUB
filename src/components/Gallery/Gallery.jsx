@@ -1,7 +1,7 @@
 import * as React from "react";
 import "./gallery.scss";
 import { useLoaderData, Link, useNavigation } from "react-router-dom";
-import Carousel from "react-elastic-carousel";
+import Carousel from '@itseasy21/react-elastic-carousel';
 import Loader from "../Loading/Loader";
 import PC from "../../assets/img/plateforms-logo/PC.png";
 import Tabs from "@mui/material/Tabs";
@@ -85,7 +85,6 @@ const Gallery = () => {
           <Loader />
         ) : games ? (
           <div className="categoryGames">
-            // Menu d'onglets
             <Box
               sx={{ borderBottom: 1, borderColor: "divider" }}
               className="tabs"

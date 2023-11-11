@@ -5,7 +5,7 @@ import snowGif from "@/assets/img/gif/snow.gif";
 import AuthStatus from '../AuthStatus/AuthStatus'
 import "./header.scss";
 import GameCard from "../GameCard/GameCard";
-import Carousel from "react-elastic-carousel";
+import Carousel from '@itseasy21/react-elastic-carousel';
 const breakPoints = [
   { width: 1, itemsToShow: 1 },
 ];
