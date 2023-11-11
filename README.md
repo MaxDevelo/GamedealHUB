@@ -20,6 +20,8 @@ git clone git@git.unistra.fr:wawrzyniak-krauth/w51-projet.git
 # Lancer l'application web
 cd w51-projet
 npm install
+# Si il y a un soucis avec react-elastic-carousel
+npm run -f 
 npm run dev
 ```
 
