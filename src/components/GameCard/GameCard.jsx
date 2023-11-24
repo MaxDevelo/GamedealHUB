@@ -20,7 +20,7 @@ const GameCard = ({ game, type }) => {
         </h4>
         <div className="game-bottom-details">
           <div className="game-price">
-            {(game.price != null) ? (game.price == 0 ? "Free" : (game.price)  + "€") : "????"}
+            {(game.price != null) ? (game.price == 0 ? "Free" : (game.price.toFixed(2))  + "€") : "????"}
           </div>
         </div>
       </div>
