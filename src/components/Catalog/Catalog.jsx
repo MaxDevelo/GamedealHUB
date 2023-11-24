@@ -157,7 +157,7 @@ const Catalog = () => {
                       {game.price != null
                         ? game.price == 0
                           ? "Free"
-                          : game.price + "€"
+                          : game.price.toFixed(2) + "€"
                         : "????"}
                     </p>
                   )}

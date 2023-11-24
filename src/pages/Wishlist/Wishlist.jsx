@@ -62,7 +62,7 @@ export default function Wishlist() {
                     {game.price != null
                       ? game.price == 0
                         ? "Free"
-                        : (game.price / 100) + "€"
+                        : (game.price / 100).toFixed(2) + "€"
                       : "????"}
                   </p>
                 </Link>
